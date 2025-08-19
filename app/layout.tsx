@@ -5,6 +5,8 @@ import { Header } from "./components/Layout/Header";
 import { Overheader } from "./components/Layout/Overheader";
 import { Footer } from "./components/Layout/Footer";
 import { ScrollToTopButton } from "./components/Layout/ScrollToTopButton";
+import AuthProvider from "@/context/AuthProvider";
+import { ProductProvider } from "@/context/ProductProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,11 +44,15 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Overheader />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <ScrollToTopButton />
+        <AuthProvider>
+          <ProductProvider>
+            <Overheader />
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <ScrollToTopButton />
+          </ProductProvider>
+        </AuthProvider>
       </body>
     </html>
   );
