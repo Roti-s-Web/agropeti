@@ -7,6 +7,7 @@ import { Footer } from "./components/Layout/Footer";
 import { ScrollToTopButton } from "./components/Layout/ScrollToTopButton";
 import AuthProvider from "@/context/AuthProvider";
 import { ProductProvider } from "@/context/ProductProvider";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,11 +47,13 @@ export default function RootLayout({
       >
         <AuthProvider>
           <ProductProvider>
-            <Overheader />
-            <Header />
-            <main>{children}</main>
-            <Footer />
-            <ScrollToTopButton />
+            <FavoritesProvider>
+              <Overheader />
+              <Header />
+              <main>{children}</main>
+              <Footer />
+              <ScrollToTopButton />
+            </FavoritesProvider>
           </ProductProvider>
         </AuthProvider>
       </body>

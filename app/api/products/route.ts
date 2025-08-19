@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { generateSlug } from "@/lib/utils/generateSlug";
 
 // GET - Fetch all products
 export async function GET() {
@@ -63,6 +64,7 @@ export async function POST(request: NextRequest) {
     const product = await prisma.product.create({
       data: {
         name,
+        slug: generateSlug(name),
         description,
         price: parseFloat(price),
         images,

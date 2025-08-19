@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { prisma } from "@/lib/prisma";
 import { authOptions } from "../../auth/[...nextauth]/route";
+import { generateSlug } from "@/lib/utils/generateSlug";
 
 // GET - Fetch single product
 export async function GET(
@@ -69,6 +70,7 @@ export async function PUT(
       },
       data: {
         name,
+        slug: generateSlug(name),
         description,
         price: parseFloat(price),
         images,

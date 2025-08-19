@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { categories } from "../../data/categories";
+import { categories } from "../../../data/categories";
 
 export const CategoryMenu = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -11,7 +11,7 @@ export const CategoryMenu = () => {
         {categories.map((category) => (
           <div key={category.id} className="relative group">
             <button
-              className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 font-medium text-sm lg:text-base"
+              className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 font-medium text-sm lg:text-base cursor-pointer"
               onMouseEnter={() => setActiveCategory(category.id)}
               onMouseLeave={() => setActiveCategory(null)}
             >
@@ -40,7 +40,7 @@ export const CategoryMenu = () => {
                   {category.subcategories.map((subcategory) => (
                     <button
                       key={subcategory.id}
-                      className="w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 flex items-center gap-2 text-sm"
+                      className="w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 flex items-center gap-2 text-sm cursor-pointer"
                       onClick={() => {
                         window.location.hash = `#category/${category.id}/${subcategory.id}`;
                         setActiveCategory(null);

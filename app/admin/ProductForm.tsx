@@ -165,7 +165,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             disabled={loading}
           >
-            <X size={24} />
+            <X size={24} className="text-gray-900" />
           </button>
         </div>
 

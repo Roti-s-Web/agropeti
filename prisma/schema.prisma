@@ -59,7 +59,8 @@ model VerificationToken {
 
 model Product {
   id            String            @id @default(auto()) @map("_id") @db.ObjectId
-  name          String   @unique
+  name          String   @unique 
+  slug          String?    @unique
   description   String
   price         Float
   images        String[]

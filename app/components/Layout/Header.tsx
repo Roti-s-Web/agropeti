@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Search, Heart, Leaf } from "lucide-react";
-import { CategoryMenu } from "../../Products/CategoryMenu";
+import { CategoryMenu } from "../UI/CategoryMenu";
+import { FavoritesModal } from "../Favorites/FavoritesModal";
 import Link from "next/link";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileSearchOpen, setIsMobileSearchOpen] = useState(false);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
@@ -85,6 +87,8 @@ export const Header = () => {
               <div className="relative">
                 <input
                   type="text"
+                  id="search"
+                  name="search"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyPress={handleKeyPress}
@@ -142,8 +146,9 @@ export const Header = () => {
           {/* Actions */}
           <div className="flex items-center gap-2">
             <button
-              className="hidden lg:block p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="hidden lg:block p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
               title="Favorite"
+              onClick={() => setIsFavoritesOpen(true)}
             >
               <Heart
                 size={20}
@@ -187,6 +192,8 @@ export const Header = () => {
             <div className="relative">
               <input
                 ref={mobileSearchRef}
+                id="mobile-search"
+                name="mobile-search"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -256,7 +263,10 @@ export const Header = () => {
               <CategoryMenu />
             </div>
             {/* Mobile Favorites in menu */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
+            <div
+              className="mt-4 pt-4 border-t border-gray-200"
+              onClick={() => setIsFavoritesOpen(true)}
+            >
               <button className="flex items-center gap-3 text-gray-700 hover:text-green-600 font-medium w-full transition-colors">
                 <Heart size={20} />
                 Favorite
@@ -265,6 +275,10 @@ export const Header = () => {
           </div>
         )}
       </div>
+
+      {isFavoritesOpen && (
+        <FavoritesModal onClose={() => setIsFavoritesOpen(false)} isOpen />
+      )}
     </header>
   );
 };

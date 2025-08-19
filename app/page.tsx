@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -9,8 +10,13 @@ import {
   Users,
   Award,
 } from "lucide-react";
+import { Product } from "@/types/types";
+import { ProductGrid } from "./components/Product/ProductGrid";
+import { getFeaturedProducts } from "../lib/getFeaturedProducts";
 
-export default function Home() {
+export default async function Home() {
+  const featuredProducts = await getFeaturedProducts();
+
   return (
     <div>
       {/* Hero Section */}
@@ -38,14 +44,20 @@ export default function Home() {
               serviciul fermierilor români.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg">
+              <Link
+                href="/produse"
+                className="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+              >
                 Explorează produsele
                 <ArrowRight size={18} />
-              </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-colors flex items-center justify-center gap-2 cursor-pointer backdrop-blur-sm">
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-colors flex items-center justify-center gap-2 cursor-pointer backdrop-blur-sm"
+              >
                 <Phone size={18} />
                 Contactează-ne
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -120,20 +132,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Produse recomandate
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Descoperă selecția noastră de produse premium, recomandate de
-              experții noștri pentru calitatea și performanțele excepționale.
-            </p>
+      {/* Featured Products Slider */}
+      {featuredProducts.length > 0 ? (
+        <ProductGrid products={featuredProducts as Product[]} />
+      ) : (
+        <section className="py-16 bg-gray-50">
+          <div className="container mx-auto px-4">
+            <div className="text-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Produse recomandate
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+                Descoperă selecția noastră de produse premium, recomandate de
+                experții noștri pentru calitatea și performanțele excepționale.
+              </p>
+              <p className="text-gray-500 mb-8">
+                Nu sunt produse recomandate momentan.
+              </p>
+              <Link
+                href="/produse"
+                className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium"
+              >
+                Vezi toate produsele
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* About Section */}
       <section className="py-16 bg-white">
@@ -234,13 +259,19 @@ export default function Home() {
             echipamentele noastre de top.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2 cursor-pointer">
+            <Link
+              href="tel:0740123456"
+              className="bg-white text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+            >
               <Phone size={18} />
               0740 123 456
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-colors cursor-pointer">
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-colors cursor-pointer"
+            >
               Trimite mesaj
-            </button>
+            </Link>
           </div>
         </div>
       </section>

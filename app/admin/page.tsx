@@ -1,13 +1,22 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Plus, Edit, Trash2, LogOut, Package, TrendingUp } from "lucide-react";
+import {
+  Plus,
+  Edit,
+  Trash2,
+  LogOut,
+  Package,
+  TrendingUp,
+  Star,
+} from "lucide-react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useProducts } from "../../context/ProductProvider";
 import { Product } from "../../types/types";
 import { ProductForm } from "./ProductForm";
 import { DeleteModal } from "./DeleteModal";
+import Image from "next/image";
 
 export default function Admin() {
   const { data: session, status } = useSession();
@@ -145,7 +154,7 @@ export default function Admin() {
           <div className="bg-white p-6 rounded-xl shadow-sm">
             <div className="flex items-center gap-4">
               <div className="bg-yellow-100 p-3 rounded-lg">
-                <Package className="text-yellow-600" size={24} />
+                <Star className="text-yellow-600" size={24} />
               </div>
               <div>
                 <p className="text-gray-600 text-sm">Produse recomandate</p>
@@ -231,11 +240,20 @@ export default function Admin() {
                       <tr key={product.id} className="hover:bg-gray-50">
                         <td className="p-4">
                           <div className="flex items-center gap-3">
-                            <img
-                              src={product.images[0]}
-                              alt={product.name}
-                              className="w-12 h-12 object-cover rounded-lg"
-                            />
+                            {product.images ? (
+                              <div className="min-w-16 min-h-16 relative">
+                                <Image
+                                  src={product.images[0]}
+                                  alt={product.name}
+                                  fill
+                                  className="object-cover rounded-lg"
+                                />
+                              </div>
+                            ) : (
+                              <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center text-gray-400">
+                                No Image
+                              </div>
+                            )}
                             <div>
                               <p className="font-medium text-gray-900">
                                 {product.name}
