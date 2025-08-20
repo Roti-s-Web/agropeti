@@ -389,7 +389,7 @@ export default async function ProductDetailPage({
                   href={`/produs/${relatedProduct.slug}`}
                   className="group"
                 >
-                  <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 hover:shadow-md transition-shadow">
+                  <div className="bg-gray-50 rounded-lg overflow-hidden border border-gray-200 ">
                     <div className="aspect-square overflow-hidden bg-gray-100 relative">
                       <Image
                         src={relatedProduct.images[0]}
@@ -400,9 +400,13 @@ export default async function ProductDetailPage({
                       />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors">
+                      <h3
+                        className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors"
+                        style={{ minHeight: "3.2rem" }}
+                      >
                         {relatedProduct.name}
                       </h3>
+
                       <div className="flex items-center justify-between">
                         <div>
                           {relatedProduct.discount ? (

@@ -4,16 +4,82 @@ import { prisma } from "@/lib/prisma";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { generateSlug } from "@/lib/utils/generateSlug";
 
-// GET - Fetch all products
-export async function GET() {
+// GET - Fetch products with pagination and search
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url);
+    const page = parseInt(searchParams.get("page") || "1");
+    const limit = parseInt(searchParams.get("limit") || "10");
+    const search = searchParams.get("search") || "";
+
+    const skip = (page - 1) * limit;
+
+    // Build search conditions
+    const searchConditions = search
+      ? {
+          OR: [
+            {
+              name: {
+                contains: search,
+                mode: "insensitive" as const,
+              },
+            },
+            {
+              description: {
+                contains: search,
+                mode: "insensitive" as const,
+              },
+            },
+            {
+              category: {
+                contains: search,
+                mode: "insensitive" as const,
+              },
+            },
+            {
+              subcategory: {
+                contains: search,
+                mode: "insensitive" as const,
+              },
+            },
+          ],
+        }
+      : {};
+
+    // Get total count for pagination
+    const totalCount = await prisma.product.count({
+      where: searchConditions,
+    });
+
+    const recommendedCount = await prisma.product.count({
+      where: { featured: true },
+    });
+
+    const inStockCount = await prisma.product.count({
+      where: { inStock: true },
+    });
+
+    // Fetch products with pagination
     const products = await prisma.product.findMany({
+      where: searchConditions,
       orderBy: {
         createdAt: "desc",
       },
+      skip,
+      take: limit,
     });
 
-    return NextResponse.json(products);
+    const hasMore = skip + products.length < totalCount;
+
+    return NextResponse.json({
+      products,
+      total: totalCount,
+      recommended: recommendedCount,
+      inStock: inStockCount,
+      page,
+      limit,
+      hasMore,
+    });
   } catch (error) {
     console.error("Error fetching products:", error);
     return NextResponse.json(
