@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { categories } from "../../../data/categories";
+import Link from "next/link";
 
 export const CategoryMenu = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -10,7 +11,8 @@ export const CategoryMenu = () => {
       <div className="flex flex-wrap gap-2 lg:gap-6">
         {categories.map((category) => (
           <div key={category.id} className="relative group">
-            <button
+            <Link
+              href={`/produse?category=${category.id}`}
               className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 font-medium text-sm lg:text-base cursor-pointer"
               onMouseEnter={() => setActiveCategory(category.id)}
               onMouseLeave={() => setActiveCategory(null)}
@@ -27,7 +29,7 @@ export const CategoryMenu = () => {
                   activeCategory === category.id ? "rotate-180" : ""
                 }`}
               />
-            </button>
+            </Link>
 
             {/* Dropdown Menu */}
             {activeCategory === category.id && (
@@ -38,7 +40,8 @@ export const CategoryMenu = () => {
               >
                 <div className="py-2">
                   {category.subcategories.map((subcategory) => (
-                    <button
+                    <Link
+                      href={`/produse?category=${category.id}&subcategory=${subcategory.id}`}
                       key={subcategory.id}
                       className="w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 flex items-center gap-2 text-sm cursor-pointer"
                       onClick={() => {
@@ -50,7 +53,7 @@ export const CategoryMenu = () => {
                         <subcategory.icon size={18} />
                       </span>
                       <span>{subcategory.name}</span>
-                    </button>
+                    </Link>
                   ))}
                 </div>
               </div>

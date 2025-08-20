@@ -33,7 +33,6 @@ type DatabaseProduct = {
   updatedAt: Date;
 };
 
-// Helper function to format category/subcategory names
 function formatCategoryName(name: string): string {
   return name
     .split("-")
@@ -41,12 +40,10 @@ function formatCategoryName(name: string): string {
     .join(" ");
 }
 
-// Type for product with guaranteed non-null slug
 type ProductWithSlug = Omit<DatabaseProduct, "slug"> & {
   slug: string;
 };
 
-// Generate static params for all product slugs
 export async function generateStaticParams() {
   try {
     const products = await prisma.product.findMany({
@@ -236,7 +233,6 @@ export default async function ProductDetailPage({
                 </div>
               </div>
 
-              {/* Contact Support Button */}
               <ProductActions product={product} />
             </div>
 

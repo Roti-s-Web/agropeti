@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Search, Heart, Leaf } from "lucide-react";
 import { CategoryMenu } from "../UI/CategoryMenu";
 import { FavoritesModal } from "../Favorites/FavoritesModal";
@@ -13,6 +14,14 @@ export const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
+
+  const pathname = usePathname();
+  const [activePage, setActivePage] = useState("acasa");
+
+  useEffect(() => {
+    const page = pathname?.split("/")[1] || "acasa";
+    setActivePage(page);
+  }, [pathname]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -40,9 +49,9 @@ export const Header = () => {
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      // Handle search functionality here
-      console.log("Searching for:", searchQuery);
-      // You can add your search logic or navigation here
+      window.location.href = `/produse?search=${encodeURIComponent(
+        searchQuery
+      )}`;
     }
   };
 
@@ -55,7 +64,7 @@ export const Header = () => {
   const toggleMobileSearch = () => {
     setIsMobileSearchOpen(!isMobileSearchOpen);
     if (!isMobileSearchOpen) {
-      setIsMenuOpen(false); // Close menu when opening search
+      setIsMenuOpen(false);
     }
   };
 
@@ -119,25 +128,33 @@ export const Header = () => {
           <nav className="hidden lg:flex items-center gap-8">
             <Link
               href="/"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className={`hover:text-green-600 font-medium transition-colors ${
+                activePage === "acasa" ? "text-green-600" : "text-gray-700"
+              }`}
             >
               Acasă
             </Link>
             <Link
-              href="/categorii"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+              href="/produse"
+              className={`hover:text-green-600 font-medium transition-colors ${
+                activePage === "produse" ? "text-green-600" : "text-gray-700"
+              }`}
             >
               Produse
             </Link>
             <Link
               href="/despre"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className={`hover:text-green-600 font-medium transition-colors ${
+                activePage === "despre" ? "text-green-600" : "text-gray-700"
+              }`}
             >
               Despre noi
             </Link>
             <Link
               href="/contact"
-              className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+              className={`hover:text-green-600 font-medium transition-colors ${
+                activePage === "contact" ? "text-green-600" : "text-gray-700"
+              }`}
             >
               Contact
             </Link>
@@ -173,7 +190,7 @@ export const Header = () => {
             <button
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
-                setIsMobileSearchOpen(false); // Close search when opening menu
+                setIsMobileSearchOpen(false);
               }}
               className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
             >
@@ -233,28 +250,36 @@ export const Header = () => {
               <Link
                 href="/"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+                className={`hover:text-green-600 font-medium transition-colors ${
+                  activePage === "acasa" ? "text-green-600" : "text-gray-700"
+                }`}
               >
                 Acasă
               </Link>
               <Link
-                href="/categorii"
+                href="/produse"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+                className={`hover:text-green-600 font-medium transition-colors ${
+                  activePage === "produse" ? "text-green-600" : "text-gray-700"
+                }`}
               >
                 Produse
               </Link>
               <Link
                 href="/despre"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+                className={`hover:text-green-600 font-medium transition-colors ${
+                  activePage === "despre" ? "text-green-600" : "text-gray-700"
+                }`}
               >
                 Despre noi
               </Link>
               <Link
                 href="/contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="text-gray-700 hover:text-green-600 font-medium transition-colors"
+                className={`hover:text-green-600 font-medium transition-colors ${
+                  activePage === "contact" ? "text-green-600" : "text-gray-700"
+                }`}
               >
                 Contact
               </Link>
