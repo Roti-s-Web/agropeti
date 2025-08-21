@@ -23,7 +23,7 @@ interface FilterState {
   inStock: boolean;
   outOfStock: boolean;
   featured: boolean;
-  sortBy: "newest" | "oldest" | "price-low" | "price-high" | "name";
+  sortBy: "newest" | "oldest" | "price-low" | "price-high" | "name" | "";
 }
 
 interface CustomSelectProps {
