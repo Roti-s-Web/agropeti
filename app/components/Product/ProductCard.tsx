@@ -75,7 +75,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             <button
               onClick={handleFavoriteClick}
               title={
-                isProductFavorite ? "Sterge din favorite" : "Adauga in favorite"
+                isProductFavorite ? "Șterge din favorite" : "Adaugă în favorite"
               }
               name="favorite"
               className={`p-2 rounded-full transition-colors cursor-pointer ${

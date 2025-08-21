@@ -23,7 +23,7 @@ declare module "next-auth/jwt" {
 export interface Product {
   id: string;
   name: string;
-  slug: string;
+  slug: string | null;
   description: string;
   price: number;
   images: string[];
@@ -31,8 +31,9 @@ export interface Product {
   subcategory: string;
   inStock: boolean;
   featured?: boolean;
-  discount?: number;
-  specifications?: { [key: string]: string };
+  discount?: number | null;
+  specifications?: Record<string, string> | null;
+
   createdAt?: Date;
   updatedAt?: Date;
 }

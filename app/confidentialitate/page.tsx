@@ -12,6 +12,16 @@ import {
   Clock,
   AlertTriangle,
   CheckCircle,
+  Truck,
+  MessageCircle,
+  BarChart3,
+  Search,
+  Edit,
+  Trash2,
+  Ban,
+  Package,
+  Pause,
+  MapPin,
 } from "lucide-react";
 
 export default function Confidentialitate() {
@@ -185,9 +195,12 @@ export default function Confidentialitate() {
                 <div className="grid md:grid-cols-2 gap-4 mt-6">
                   <div className="space-y-4">
                     <div className="bg-green-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-green-800 mb-2">
-                        📞 Procesarea comenzilor
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Phone className="text-green-600" size={16} />
+                        <h3 className="font-semibold text-green-800">
+                          Procesarea comenzilor
+                        </h3>
+                      </div>
                       <ul className="text-green-700 text-sm space-y-1">
                         <li>• Confirmarea comenzilor telefonice</li>
                         <li>• Calcularea costurilor de transport</li>
@@ -196,9 +209,12 @@ export default function Confidentialitate() {
                     </div>
 
                     <div className="bg-blue-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-blue-800 mb-2">
-                        🚛 Livrarea produselor
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <Truck className="text-blue-600" size={16} />
+                        <h3 className="font-semibold text-blue-800">
+                          Livrarea produselor
+                        </h3>
+                      </div>
                       <ul className="text-blue-700 text-sm space-y-1">
                         <li>• Transmiterea datelor către transportatori</li>
                         <li>• Urmărirea statusului livrării</li>
@@ -209,9 +225,12 @@ export default function Confidentialitate() {
 
                   <div className="space-y-4">
                     <div className="bg-purple-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-purple-800 mb-2">
-                        💬 Comunicarea cu clienții
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <MessageCircle className="text-purple-600" size={16} />
+                        <h3 className="font-semibold text-purple-800">
+                          Comunicarea cu clienții
+                        </h3>
+                      </div>
                       <ul className="text-purple-700 text-sm space-y-1">
                         <li>• Răspunsuri la întrebări</li>
                         <li>• Informații despre produse</li>
@@ -220,9 +239,12 @@ export default function Confidentialitate() {
                     </div>
 
                     <div className="bg-orange-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-orange-800 mb-2">
-                        📊 Îmbunătățirea serviciilor
-                      </h3>
+                      <div className="flex items-center gap-2 mb-2">
+                        <BarChart3 className="text-orange-600" size={16} />
+                        <h3 className="font-semibold text-orange-800">
+                          Îmbunătățirea serviciilor
+                        </h3>
+                      </div>
                       <ul className="text-orange-700 text-sm space-y-1">
                         <li>• Analiza preferințelor clienților</li>
                         <li>• Optimizarea site-ului</li>
@@ -408,27 +430,36 @@ export default function Confidentialitate() {
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-3">
                     <div className="bg-blue-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-blue-800 text-sm">
-                        🔍 Dreptul de acces
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Search className="text-blue-600" size={14} />
+                        <h3 className="font-semibold text-blue-800 text-sm">
+                          Dreptul de acces
+                        </h3>
+                      </div>
                       <p className="text-blue-700 text-xs mt-1">
                         Să știți ce date avem despre dvs.
                       </p>
                     </div>
 
                     <div className="bg-green-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-green-800 text-sm">
-                        ✏️ Dreptul de rectificare
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Edit className="text-green-600" size={14} />
+                        <h3 className="font-semibold text-green-800 text-sm">
+                          Dreptul de rectificare
+                        </h3>
+                      </div>
                       <p className="text-green-700 text-xs mt-1">
                         Să corectați datele inexacte
                       </p>
                     </div>
 
                     <div className="bg-red-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-red-800 text-sm">
-                        🗑️ Dreptul de ștergere
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Trash2 className="text-red-600" size={14} />
+                        <h3 className="font-semibold text-red-800 text-sm">
+                          Dreptul de ștergere
+                        </h3>
+                      </div>
                       <p className="text-red-700 text-xs mt-1">
                         Să solicitați ștergerea datelor
                       </p>
@@ -437,27 +468,36 @@ export default function Confidentialitate() {
 
                   <div className="space-y-3">
                     <div className="bg-purple-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-purple-800 text-sm">
-                        🚫 Dreptul de opoziție
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Ban className="text-purple-600" size={14} />
+                        <h3 className="font-semibold text-purple-800 text-sm">
+                          Dreptul de opoziție
+                        </h3>
+                      </div>
                       <p className="text-purple-700 text-xs mt-1">
                         Să vă opuneți prelucrării
                       </p>
                     </div>
 
                     <div className="bg-orange-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-orange-800 text-sm">
-                        📦 Dreptul la portabilitate
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Package className="text-orange-600" size={14} />
+                        <h3 className="font-semibold text-orange-800 text-sm">
+                          Dreptul la portabilitate
+                        </h3>
+                      </div>
                       <p className="text-orange-700 text-xs mt-1">
                         Să primiți datele în format digital
                       </p>
                     </div>
 
                     <div className="bg-gray-50 p-3 rounded-lg">
-                      <h3 className="font-semibold text-gray-800 text-sm">
-                        ⏸️ Dreptul de limitare
-                      </h3>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Pause className="text-gray-600" size={14} />
+                        <h3 className="font-semibold text-gray-800 text-sm">
+                          Dreptul de limitare
+                        </h3>
+                      </div>
                       <p className="text-gray-700 text-xs mt-1">
                         Să restricționați prelucrarea
                       </p>
@@ -474,12 +514,14 @@ export default function Confidentialitate() {
                     puteți contacta:
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2">
-                    <span className="text-yellow-700 text-sm">
-                      📞 Telefon: 0740 123 456
-                    </span>
-                    <span className="text-yellow-700 text-sm">
-                      ✉️ Email: contact@agropeti.ro
-                    </span>
+                    <div className="flex items-center gap-1 text-yellow-700 text-sm">
+                      <Phone size={14} />
+                      <span>Telefon: 0740 123 456</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-yellow-700 text-sm">
+                      <Mail size={14} />
+                      <span>Email: contact@agropeti.ro</span>
+                    </div>
                   </div>
                   <p className="text-yellow-700 text-xs mt-2">
                     Vom răspunde în maximum 30 de zile la solicitările dvs.
@@ -626,9 +668,10 @@ export default function Confidentialitate() {
                       <Mail size={16} />
                       <span>contact@agropeti.ro</span>
                     </div>
-                    <p className="text-sm">
-                      📍 Strada Agricolă nr. 123, Oradea, Bihor, România
-                    </p>
+                    <div className="flex items-center gap-2">
+                      <MapPin size={16} /> Strada Agricolă nr. 123, Oradea,
+                      Bihor, România
+                    </div>
                   </div>
                 </div>
 
