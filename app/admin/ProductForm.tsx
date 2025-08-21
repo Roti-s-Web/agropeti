@@ -4,6 +4,7 @@ import { useProducts } from "../../context/ProductProvider";
 import { categories } from "../../data/categories";
 import { Product } from "../../types/types";
 import { uploadToCloudinary } from "../../lib/upload";
+import Image from "next/image";
 
 interface ProductFormProps {
   product?: Product | null;
@@ -418,7 +419,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     <button
                       type="button"
                       onClick={() => fileInputRefs.current[index]?.click()}
-                      className="px-3 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors disabled:opacity-50"
+                      className="px-3 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors disabled:opacity-50 cursor-pointer"
                       disabled={loading || uploading[index]}
                     >
                       {uploading[index] ? (
@@ -439,18 +440,22 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                     )}
                   </div>
                   {image && (
-                    <img
-                      src={image}
-                      alt={`Preview ${index + 1}`}
-                      className="w-20 h-20 object-cover rounded-lg border"
-                    />
+                    <div className="relative w-20 h-20">
+                      <Image
+                        src={image}
+                        alt={`Preview ${index + 1}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover rounded-lg border"
+                      />
+                    </div>
                   )}
                 </div>
               ))}
               <button
                 type="button"
                 onClick={addImageField}
-                className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 rounded-lg transition-colors cursor-pointer"
                 disabled={loading}
               >
                 <Upload size={16} />
@@ -513,7 +518,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   title="Adaugă specificație"
                   onClick={addSpecification}
                   disabled={!newSpecKey || !newSpecValue || loading}
-                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors cursor-pointer"
                 >
                   Adaugă
                 </button>
@@ -531,7 +536,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={(e) =>
                   setFormData({ ...formData, inStock: e.target.checked })
                 }
-                className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                className="rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
                 disabled={loading}
               />
               <label
@@ -550,7 +555,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 onChange={(e) =>
                   setFormData({ ...formData, featured: e.target.checked })
                 }
-                className="rounded border-gray-300 text-green-600 focus:ring-green-500"
+                className="rounded border-gray-300 text-green-600 focus:ring-green-500 cursor-pointer"
                 disabled={loading}
               />
               <label

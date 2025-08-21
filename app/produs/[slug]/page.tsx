@@ -15,6 +15,8 @@ import {
 import { ProductImageGallery } from "../../components/Product/ProductImageGallery";
 import { ProductActions } from "@/app/components/Product/ProductActions";
 import { prisma } from "../../../lib/prisma";
+import Markdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 
 type DatabaseProduct = {
   id: string;
@@ -274,14 +276,17 @@ export default async function ProductDetailPage({
                 Descrierea produsului
               </h2>
               <div className="prose prose-gray max-w-none">
-                <p className="text-gray-600 leading-relaxed">
-                  {product.description.split("\n").map((line, index) => (
-                    <React.Fragment key={index}>
-                      {line}
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </p>
+                <div className="text-gray-600 leading-relaxed">
+                  <Markdown
+                    remarkPlugins={[remarkBreaks]}
+                    components={{
+                      p: ({ children }) => <p className="mb-4">{children}</p>,
+                      br: () => <br className="mb-2" />,
+                    }}
+                  >
+                    {product.description}
+                  </Markdown>
+                </div>
               </div>
             </div>
 

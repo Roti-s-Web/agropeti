@@ -69,7 +69,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/categorii"
+                  href="/produse"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Produse
@@ -99,7 +99,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#ambalare"
+                  href="/produse?category=ambalare"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Ambalare
@@ -107,7 +107,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/zootehnie"
+                  href="/produse?category=zootehnie"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Zootehnie
@@ -115,7 +115,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/jucarii"
+                  href="/produse?category=jucarii"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Jucării
@@ -123,7 +123,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/piese-agricole"
+                  href="/produse?category=piese-agricole"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Piese Agricole
@@ -131,7 +131,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/piese-plug"
+                  href="/produse?category=piese-plug"
                   className="text-green-200 hover:text-white transition-colors"
                 >
                   Piese pentru plug
@@ -179,18 +179,18 @@ export const Footer = () => {
               © 2025 AgroPeti. Toate drepturile rezervate.
             </p>
             <div className="flex gap-6 text-sm">
-              <a
-                href="#privacy"
+              <Link
+                href="/confidentialitate"
                 className="text-green-200 hover:text-white transition-colors"
               >
                 Politica de confidențialitate
-              </a>
-              <a
-                href="#terms"
+              </Link>
+              <Link
+                href="/termeni"
                 className="text-green-200 hover:text-white transition-colors"
               >
                 Termeni și condiții
-              </a>
+              </Link>
             </div>
           </div>
         </div>

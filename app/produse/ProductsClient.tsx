@@ -105,7 +105,7 @@ interface FilterState {
   inStock: boolean;
   outOfStock: boolean;
   featured: boolean;
-  sortBy: "newest" | "oldest" | "price-low" | "price-high" | "name";
+  sortBy: "newest" | "oldest" | "price-low" | "price-high" | "name" | "";
 }
 
 const ProductsPage = () => {
@@ -130,27 +130,11 @@ const ProductsPage = () => {
     minPrice: searchParams.get("minPrice") || "",
     maxPrice: searchParams.get("maxPrice") || "",
     onSale: searchParams.get("onSale") === "true",
-    inStock: searchParams.get("inStock") !== "false",
+    inStock: searchParams.get("inStock") === "true",
     outOfStock: searchParams.get("outOfStock") === "true",
     featured: searchParams.get("featured") === "true",
-    sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
+    sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "",
   });
-
-  useEffect(() => {
-    setFilters((prev) => ({
-      ...prev,
-      search: searchParams.get("search") || "",
-      category: searchParams.get("category") || "",
-      subcategory: searchParams.get("subcategory") || "",
-      minPrice: searchParams.get("minPrice") || "",
-      maxPrice: searchParams.get("maxPrice") || "",
-      onSale: searchParams.get("onSale") === "true",
-      inStock: searchParams.get("inStock") !== "false",
-      outOfStock: searchParams.get("outOfStock") === "true",
-      featured: searchParams.get("featured") === "true",
-      sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
-    }));
-  }, [searchParams]);
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -350,7 +334,7 @@ const ProductsPage = () => {
       inStock: true,
       outOfStock: false,
       featured: false,
-      sortBy: "newest",
+      sortBy: "",
     });
   };
 
@@ -367,7 +351,7 @@ const ProductsPage = () => {
 
   const activeFiltersCount = Object.entries(filters).filter(([key, value]) => {
     if (key === "inStock" && value === true) return false;
-    if (key === "sortBy" && value === "newest") return false;
+    if (key === "sortBy") return false;
     return value && value !== "";
   }).length;
 
