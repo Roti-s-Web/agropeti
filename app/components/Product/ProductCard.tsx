@@ -107,7 +107,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {product.name}
           </h3>
 
-          <p className="text-gray-600 text-sm mb-3 line-clamp-2 min-h-[2.8rem]">
+          <p className="text-gray-600 text-sm mb-3 line-clamp-2 min-h-[2.7rem]">
             {product.description}
           </p>
 

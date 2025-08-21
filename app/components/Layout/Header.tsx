@@ -80,7 +80,11 @@ export const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+          <Link
+            href="/"
+            className="flex items-center gap-3 flex-shrink-0"
+            onClick={() => setIsMenuOpen(false)}
+          >
             <div className="bg-green-600 p-2 rounded-lg">
               <Leaf className="text-white" size={32} />
             </div>
@@ -240,7 +244,7 @@ export const Header = () => {
 
         {/* Category Menu - Desktop */}
         <div className="hidden lg:block border-t border-gray-200">
-          <CategoryMenu />
+          <CategoryMenu setIsOpen={setIsMenuOpen} />
         </div>
 
         {/* Mobile Menu */}
@@ -285,7 +289,7 @@ export const Header = () => {
               </Link>
             </nav>
             <div className="mt-4 pt-4 border-t border-gray-200">
-              <CategoryMenu />
+              <CategoryMenu setIsOpen={setIsMenuOpen} />
             </div>
             {/* Mobile Favorites in menu */}
             <div

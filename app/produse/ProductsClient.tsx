@@ -133,7 +133,7 @@ const ProductsPage = () => {
     inStock: searchParams.get("inStock") === "true",
     outOfStock: searchParams.get("outOfStock") === "true",
     featured: searchParams.get("featured") === "true",
-    sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "",
+    sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
   });
 
   const fetchProducts = useCallback(async () => {
@@ -154,6 +154,22 @@ const ProductsPage = () => {
   useEffect(() => {
     fetchProducts();
   }, [fetchProducts]);
+
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      search: searchParams.get("search") || "",
+      category: searchParams.get("category") || "",
+      subcategory: searchParams.get("subcategory") || "",
+      minPrice: searchParams.get("minPrice") || "",
+      maxPrice: searchParams.get("maxPrice") || "",
+      onSale: searchParams.get("onSale") === "true",
+      inStock: searchParams.get("inStock") === "true",
+      outOfStock: searchParams.get("outOfStock") === "true",
+      featured: searchParams.get("featured") === "true",
+      sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
+    }));
+  }, [searchParams]);
 
   // Filter and sort products
   useEffect(() => {
@@ -334,7 +350,7 @@ const ProductsPage = () => {
       inStock: true,
       outOfStock: false,
       featured: false,
-      sortBy: "",
+      sortBy: "newest",
     });
   };
 

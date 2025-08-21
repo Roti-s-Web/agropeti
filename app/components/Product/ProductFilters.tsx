@@ -394,7 +394,10 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
             : "-translate-x-full lg:translate-x-0"
         } w-4/5 max-w-sm lg:w-80`}
       >
-        <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-4 sm:p-6 h-full lg:h-auto max-h-full overflow-y-auto">
+        <div
+          className="bg-white shadow-lg border border-gray-100 p-4 sm:p-6 h-full lg:h-auto max-h-full overflow-y-auto
+  rounded-tr-xl rounded-br-xl lg:rounded-xl"
+        >
           <div className="flex items-center justify-between mb-4 sm:mb-6 sticky top-0 bg-white pb-2 border-b border-gray-100 ">
             <h2 className="text-lg font-semibold text-gray-900">Filtrează</h2>
             <div className="flex items-center gap-2">

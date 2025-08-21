@@ -3,7 +3,11 @@ import { ChevronDown } from "lucide-react";
 import { categories } from "../../../data/categories";
 import Link from "next/link";
 
-export const CategoryMenu = () => {
+export const CategoryMenu = ({
+  setIsOpen,
+}: {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
@@ -16,6 +20,7 @@ export const CategoryMenu = () => {
               className="flex items-center gap-3 px-4 py-2 text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-lg transition-all duration-200 font-medium text-sm lg:text-base cursor-pointer"
               onMouseEnter={() => setActiveCategory(category.id)}
               onMouseLeave={() => setActiveCategory(null)}
+              onClick={() => setIsOpen(false)}
             >
               <span className="flex items-center gap-3">
                 <span>
@@ -46,6 +51,7 @@ export const CategoryMenu = () => {
                       className="w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 flex items-center gap-2 text-sm cursor-pointer"
                       onClick={() => {
                         setActiveCategory(null);
+                        setIsOpen(false);
                       }}
                     >
                       <span>
