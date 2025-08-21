@@ -25,6 +25,8 @@ export function DeleteModal({
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600"
+            name="close-modal"
+            type="button"
           >
             <X size={20} />
           </button>
@@ -37,12 +39,18 @@ export function DeleteModal({
         <div className="flex justify-end gap-3">
           <button
             onClick={onClose}
+            name="close-modal"
+            type="button"
+            title="Anulează"
             className="px-4 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors cursor-pointer"
           >
             Anulează
           </button>
           <button
             onClick={onConfirm}
+            name="confirm-delete"
+            type="button"
+            title="Șterge"
             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 transition-colors cursor-pointer"
           >
             <Trash2 size={16} />

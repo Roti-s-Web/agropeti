@@ -65,6 +65,8 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         {/* Contact */}
         <button
           onClick={handleContact}
+          title="Contactează pentru comandă"
+          name="contact"
           className="flex-1 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
         >
           <Phone size={20} />
@@ -74,6 +76,7 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         {/* Favorite */}
         <button
           onClick={handleFavoriteClick}
+          name="favorite"
           className={`flex-1 sm:flex-none px-4 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer ${
             isProductFavorite
               ? "bg-red-100 hover:bg-red-200 text-red-600"
@@ -96,6 +99,7 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         <button
           onClick={handleShare}
           disabled={isSharing}
+          name="share"
           className="flex-1 sm:flex-none bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 disabled:opacity-50 cursor-pointer"
           title="Distribuie produsul"
         >

@@ -47,8 +47,10 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     <div className="relative" ref={selectRef}>
       <button
         type="button"
+        title="Selectează categorie"
+        name="category"
         onClick={() => setIsOpen(!isOpen)}
-        className="border border-gray-300 rounded-lg px-3 py-2 text-xs sm:text-sm focus:border-green-500 focus:outline-none text-left flex items-center justify-between bg-white min-w-[140px]"
+        className="border border-gray-300 rounded-lg px-3 py-2 text-xs sm:text-sm focus:border-green-500 focus:outline-none text-left flex items-center justify-between bg-white min-w-[140px] cursor-pointer"
       >
         <span className={selectedOption ? "text-gray-900" : "text-gray-500"}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -73,11 +75,13 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
               <button
                 key={option.value}
                 type="button"
+                name="category"
+                title="Selectează categorie"
                 onClick={() => {
                   onChange(option.value);
                   setIsOpen(false);
                 }}
-                className={`w-full px-3 py-2 text-left text-xs sm:text-sm hover:bg-gray-100 text-gray-700  ${
+                className={`w-full px-3 py-2 text-left text-xs sm:text-sm hover:bg-gray-100 text-gray-700  cursor-pointer ${
                   value === option.value ? "bg-green-50 text-green-700" : ""
                 }`}
               >
@@ -131,6 +135,22 @@ const ProductsPage = () => {
     featured: searchParams.get("featured") === "true",
     sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
   });
+
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      search: searchParams.get("search") || "",
+      category: searchParams.get("category") || "",
+      subcategory: searchParams.get("subcategory") || "",
+      minPrice: searchParams.get("minPrice") || "",
+      maxPrice: searchParams.get("maxPrice") || "",
+      onSale: searchParams.get("onSale") === "true",
+      inStock: searchParams.get("inStock") !== "false",
+      outOfStock: searchParams.get("outOfStock") === "true",
+      featured: searchParams.get("featured") === "true",
+      sortBy: (searchParams.get("sortBy") as FilterState["sortBy"]) || "newest",
+    }));
+  }, [searchParams]);
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -447,7 +467,10 @@ const ProductsPage = () => {
                     <button
                       onClick={loadMoreProducts}
                       disabled={loadingMore}
-                      className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      type="button"
+                      name="load-more"
+                      title="Încarcă mai multe produse"
+                      className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                     >
                       {loadingMore ? (
                         <>
@@ -481,6 +504,8 @@ const ProductsPage = () => {
                 </p>
                 <button
                   onClick={clearFilters}
+                  title="Șterge filtrele"
+                  name="clear-filters"
                   className="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors cursor-pointer"
                 >
                   Șterge filtrele

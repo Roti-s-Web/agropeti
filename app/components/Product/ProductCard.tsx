@@ -74,6 +74,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <div className="absolute top-3 right-3 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity ">
             <button
               onClick={handleFavoriteClick}
+              title={
+                isProductFavorite ? "Sterge din favorite" : "Adauga in favorite"
+              }
+              name="favorite"
               className={`p-2 rounded-full transition-colors cursor-pointer ${
                 isProductFavorite
                   ? "bg-red-500 text-white"
@@ -131,6 +135,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <button
             onClick={handleContactClick}
             disabled={!product.inStock}
+            title={product.inStock ? "Sună pentru comandă" : "Indisponibil"}
+            name="contact"
             className={`w-full py-2 px-4 rounded-lg font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer ${
               product.inStock
                 ? "bg-green-600 text-white hover:bg-green-700"

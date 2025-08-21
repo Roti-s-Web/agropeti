@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Leaf,
   Users,
@@ -9,6 +8,7 @@ import {
   Shield,
   Star,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -315,12 +315,18 @@ export default function About() {
             personalizate.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-green-50 transition-colors font-semibold cursor-pointer">
+            <Link
+              href="/contact"
+              className="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-green-50 transition-colors font-semibold cursor-pointer"
+            >
               Solicită consultanță gratuită
-            </button>
-            <button className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-green-600 transition-colors font-semibold cursor-pointer">
+            </Link>
+            <Link
+              href="/produse"
+              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-green-600 transition-colors font-semibold cursor-pointer"
+            >
               Vezi produsele noastre
-            </button>
+            </Link>
           </div>
         </div>
       </section>

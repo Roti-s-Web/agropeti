@@ -32,13 +32,25 @@ export const Footer = () => {
               15 ani.
             </p>
             <div className="flex gap-3">
-              <button className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer">
+              <button
+                className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                title="Facebook"
+                name="facebook"
+              >
                 <Facebook size={20} />
               </button>
-              <button className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer">
+              <button
+                className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                title="Instagram"
+                name="instagram"
+              >
                 <Instagram size={20} />
               </button>{" "}
-              <button className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer">
+              <button
+                className="bg-white/10 p-2 rounded-lg hover:bg-white/20 transition-colors cursor-pointer"
+                title="Twitter"
+                name="twitter"
+              >
                 <Twitter size={20} />
               </button>
             </div>

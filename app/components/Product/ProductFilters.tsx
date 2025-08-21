@@ -65,8 +65,10 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     <div className="relative" ref={selectRef}>
       <button
         type="button"
+        title="Selectează categorie"
+        name="category"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base text-left flex items-center justify-between bg-white"
+        className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base text-left flex items-center justify-between bg-white cursor-pointer"
       >
         <span className={selectedOption ? "text-gray-700" : "text-gray-500"}>
           {selectedOption ? selectedOption.label : placeholder}
@@ -86,16 +88,18 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
             className="fixed inset-0 z-10 lg:hidden "
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute z-20 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+          <div className="absolute z-20 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto z-200">
             {options.map((option) => (
               <button
                 key={option.value}
                 type="button"
+                name="category"
+                title="Selectează categorie"
                 onClick={() => {
                   onChange(option.value);
                   setIsOpen(false);
                 }}
-                className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-100 text-gray-700 ${
+                className={`w-full px-3 py-2 text-left text-sm hover:bg-gray-100 text-gray-700 cursor-pointer ${
                   value === option.value ? "bg-green-50 text-green-700" : ""
                 }`}
               >
@@ -105,6 +109,209 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           </div>
         </>
       )}
+    </div>
+  );
+};
+
+interface PriceRangeSliderProps {
+  minPrice: string;
+  maxPrice: string;
+  onMinPriceChange: (value: string) => void;
+  onMaxPriceChange: (value: string) => void;
+}
+
+const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
+  minPrice,
+  maxPrice,
+  onMinPriceChange,
+  onMaxPriceChange,
+}) => {
+  const MIN_LIMIT = 0;
+  const MAX_LIMIT = 5000;
+
+  const minVal = Math.max(
+    MIN_LIMIT,
+    Math.min(Number(minPrice) || MIN_LIMIT, MAX_LIMIT)
+  );
+  const maxVal = Math.max(
+    minVal + 10,
+    Math.min(Number(maxPrice) || MAX_LIMIT, MAX_LIMIT)
+  );
+
+  const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.min(Number(e.target.value), maxVal - 10);
+    onMinPriceChange(value.toString());
+  };
+
+  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.max(Number(e.target.value), minVal + 10);
+    onMaxPriceChange(value.toString());
+  };
+
+  return (
+    <div className="space-y-4">
+      {/* Price Inputs */}
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <input
+            type="number"
+            name="minPrice"
+            id="minPrice"
+            min={MIN_LIMIT}
+            max={MAX_LIMIT}
+            placeholder="Preț minim"
+            value={minPrice}
+            onChange={(e) => onMinPriceChange(e.target.value)}
+            className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base placeholder-gray-500 text-gray-700"
+          />
+        </div>
+        <div>
+          <input
+            type="number"
+            name="maxPrice"
+            id="maxPrice"
+            min={MIN_LIMIT}
+            max={MAX_LIMIT}
+            placeholder="Preț maxim"
+            value={maxPrice}
+            onChange={(e) => onMaxPriceChange(e.target.value)}
+            className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base placeholder-gray-500 text-gray-700"
+          />
+        </div>
+      </div>
+
+      {/* Dual Range Slider */}
+      <div className="px-2">
+        <div className="relative h-10 mb-4">
+          {/* Track Background */}
+          <div className="absolute top-1/2 w-full h-2 bg-gray-200 rounded-lg transform -translate-y-1/2"></div>
+
+          {/* Active Range Track */}
+          <div
+            className="absolute top-1/2 h-2 bg-green-500 rounded-lg transform -translate-y-1/2 pointer-events-none"
+            style={{
+              left: `${
+                ((minVal - MIN_LIMIT) / (MAX_LIMIT - MIN_LIMIT)) * 100
+              }%`,
+              width: `${((maxVal - minVal) / (MAX_LIMIT - MIN_LIMIT)) * 100}%`,
+            }}
+          ></div>
+
+          {/* Min Range Slider */}
+          <input
+            type="range"
+            min={MIN_LIMIT}
+            max={MAX_LIMIT}
+            step="10"
+            value={minVal}
+            onChange={handleMinChange}
+            className="absolute top-1/2 w-full h-6 bg-transparent appearance-none cursor-pointer transform -translate-y-1/2 z-10 dual-range-slider min-slider"
+          />
+
+          {/* Max Range Slider */}
+          <input
+            type="range"
+            min={MIN_LIMIT}
+            max={MAX_LIMIT}
+            step="10"
+            value={maxVal}
+            onChange={handleMaxChange}
+            className="absolute top-1/2 w-full h-6 bg-transparent appearance-none cursor-pointer transform -translate-y-1/2 z-20 dual-range-slider max-slider"
+          />
+        </div>
+
+        {/* Min/Max Labels */}
+        <div className="flex justify-between text-xs text-gray-600">
+          <span>{MIN_LIMIT} lei</span>
+          <span className="font-medium text-gray-700">
+            {minVal} - {maxVal} lei
+          </span>
+          <span>{MAX_LIMIT} lei</span>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .dual-range-slider {
+          pointer-events: none;
+        }
+
+        .dual-range-slider::-webkit-slider-thumb {
+          appearance: none;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #10b981;
+          border: 2px solid white;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          pointer-events: all;
+          position: relative;
+          z-index: 100;
+        }
+
+        .dual-range-slider::-moz-range-thumb {
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #10b981;
+          border: 2px solid white;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          cursor: pointer;
+          pointer-events: all;
+          position: relative;
+          z-index: 100;
+          border: none;
+        }
+
+        .dual-range-slider::-webkit-slider-track {
+          background: transparent;
+        }
+
+        .dual-range-slider::-moz-range-track {
+          background: transparent;
+        }
+
+        .dual-range-slider::-webkit-slider-thumb:active {
+          cursor: grabbing;
+        }
+
+        /* Ensure max slider thumb is always on top when values are close */
+        .max-slider {
+          pointer-events: none;
+        }
+
+        .max-slider::-webkit-slider-thumb {
+          pointer-events: all;
+          z-index: 200 !important;
+        }
+
+        .max-slider::-moz-range-thumb {
+          z-index: 200 !important;
+        }
+
+        .min-slider {
+          pointer-events: none;
+        }
+
+        .min-slider::-webkit-slider-thumb {
+          pointer-events: all;
+          z-index: 100 !important;
+        }
+
+        .min-slider::-moz-range-thumb {
+          z-index: 100 !important;
+        }
+
+        /* Adjust thumb position to align better with track */
+        .dual-range-slider::-webkit-slider-thumb {
+          margin-top: -9px;
+          transform: translateY(3px);
+        }
+
+        .dual-range-slider::-moz-range-thumb {
+          margin-top: 1px;
+        }
+      `}</style>
     </div>
   );
 };
@@ -149,6 +356,9 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
       <div className="lg:hidden mb-4 sm:mb-6">
         <button
           onClick={onToggleMobileFilters}
+          type="button"
+          title="Filtrează produse"
+          name="filter"
           className="w-full flex items-center justify-between p-3 sm:p-4 bg-white rounded-lg border border-gray-200"
         >
           <div className="flex items-center gap-2 ">
@@ -191,6 +401,8 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               {activeFiltersCount > 0 && (
                 <button
                   onClick={onClearFilters}
+                  title="Șterge filtrele"
+                  name="clear-filters"
                   className="text-sm text-red-600 hover:text-red-700 font-medium mr-2 cursor-pointer"
                 >
                   Șterge toate
@@ -198,6 +410,8 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               )}
               <button
                 onClick={onToggleMobileFilters}
+                title="Închide filtrele"
+                name="close-filters"
                 className="lg:hidden p-1 text-gray-400 hover:text-gray-600 bg-gray-100 rounded-full"
                 aria-label="Închide filtrele"
               >
@@ -232,6 +446,8 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                 {filters.search && (
                   <button
                     onClick={() => onFilterChange("search", "")}
+                    title="Șterge cautarea"
+                    name="clear-search"
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                   >
                     <X size={16} />
@@ -271,35 +487,17 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               </div>
             )}
 
-            {/* Price Range */}
+            {/* Price Range with Dual Slider */}
             <div className="mb-4 sm:mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Interval preț (Lei)
               </label>
-              <div className="grid grid-cols-2 gap-2">
-                <div>
-                  <input
-                    type="number"
-                    name="minPrice"
-                    id="minPrice"
-                    placeholder="Preț minim"
-                    value={filters.minPrice}
-                    onChange={(e) => onFilterChange("minPrice", e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base placeholder-gray-500 text-gray-700"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    name="maxPrice"
-                    id="maxPrice"
-                    placeholder="Preț maxim"
-                    value={filters.maxPrice}
-                    onChange={(e) => onFilterChange("maxPrice", e.target.value)}
-                    className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:border-green-500 focus:outline-none text-sm sm:text-base placeholder-gray-500 text-gray-700"
-                  />
-                </div>
-              </div>
+              <PriceRangeSlider
+                minPrice={filters.minPrice}
+                maxPrice={filters.maxPrice}
+                onMinPriceChange={(value) => onFilterChange("minPrice", value)}
+                onMaxPriceChange={(value) => onFilterChange("maxPrice", value)}
+              />
             </div>
 
             {/* Special Filters */}
@@ -317,7 +515,7 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                     onChange={(e) =>
                       onFilterChange("featured", e.target.checked)
                     }
-                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:border-green-500 focus:ring-green-500"
+                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:border-green-500 focus:ring-green-500 cursor-pointer"
                   />
                   <Star size={16} className="text-green-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">
@@ -332,7 +530,7 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                     id="onSale"
                     checked={filters.onSale}
                     onChange={(e) => onFilterChange("onSale", e.target.checked)}
-                    className="w-4 h-4 rounded border-gray-300 text-red-600 focus:border-red-500 focus:ring-red-500"
+                    className="w-4 h-4 rounded border-gray-300 text-red-600 focus:border-red-500 focus:ring-red-500 cursor-pointer"
                   />
                   <Tag size={16} className="text-red-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">La reducere</span>
@@ -355,7 +553,7 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                     onChange={(e) =>
                       onFilterChange("inStock", e.target.checked)
                     }
-                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:border-green-500 focus:ring-green-500"
+                    className="w-4 h-4 rounded border-gray-300 text-green-600 focus:border-green-500 focus:ring-green-500 cursor-pointer"
                   />
                   <Package size={16} className="text-green-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">În stoc</span>
@@ -370,7 +568,7 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                     onChange={(e) =>
                       onFilterChange("outOfStock", e.target.checked)
                     }
-                    className="w-4 h-4 rounded border-gray-300 text-gray-600 focus:border-gray-500 focus:ring-gray-500"
+                    className="w-4 h-4 rounded border-gray-300 text-gray-600 focus:border-gray-500 focus:ring-gray-500 cursor-pointer"
                   />
                   <X size={16} className="text-gray-600 flex-shrink-0" />
                   <span className="text-sm text-gray-700">Stoc epuizat</span>

@@ -123,6 +123,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
     try {
       const productData: Omit<Product, "id" | "createdAt" | "updatedAt"> = {
         name: formData.name,
+        slug: formData.name.toLowerCase().replace(/\s+/g, "-"),
         description: formData.description,
         price: parseFloat(formData.price),
         images: formData.images.filter((img) => img.trim() !== ""),
@@ -164,6 +165,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             onClick={onClose}
             className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
             disabled={loading}
+            title="Close"
+            name="Close"
           >
             <X size={24} className="text-gray-900" />
           </button>
@@ -506,6 +509,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                 />
                 <button
                   type="button"
+                  name="addSpec"
+                  title="Adaugă specificație"
                   onClick={addSpecification}
                   disabled={!newSpecKey || !newSpecValue || loading}
                   className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
@@ -561,6 +566,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           <div className="flex gap-3 pt-6 border-t">
             <button
               type="button"
+              name="cancel"
+              title="Anulează"
               onClick={onClose}
               className="flex-1 px-4 py-3 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-medium cursor-pointer"
               disabled={loading}
@@ -569,6 +576,8 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             </button>
             <button
               type="submit"
+              name="save"
+              title="Salvează"
               disabled={loading || uploading.some((u) => u)}
               className="flex-1 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium cursor-pointer"
             >

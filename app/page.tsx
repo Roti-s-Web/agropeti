@@ -204,7 +204,11 @@ export default async function Home() {
               </div>
 
               <Link href="/despre">
-                <button className="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium cursor-pointer">
+                <button
+                  className="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors font-medium cursor-pointer"
+                  title="Află mai multe despre noi"
+                  name="about"
+                >
                   Află mai multe despre noi
                 </button>
               </Link>

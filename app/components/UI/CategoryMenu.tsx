@@ -45,7 +45,6 @@ export const CategoryMenu = () => {
                       key={subcategory.id}
                       className="w-full text-left px-4 py-3 text-gray-600 hover:text-green-600 hover:bg-green-50 transition-colors duration-200 flex items-center gap-2 text-sm cursor-pointer"
                       onClick={() => {
-                        window.location.hash = `#category/${category.id}/${subcategory.id}`;
                         setActiveCategory(null);
                       }}
                     >

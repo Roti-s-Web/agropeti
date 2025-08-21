@@ -49,7 +49,9 @@ export const ScrollToTopButton = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-5 right-5 z-50 group hover:scale-110 transition-all duration-300 ease-in-out"
+          type="button"
+          name="scroll-to-top"
+          className="fixed bottom-5 right-5 z-50 group hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer"
           aria-label="Scroll to top"
         >
           {/* SVG Circle Progress */}
