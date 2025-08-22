@@ -411,7 +411,9 @@ const ProductsPage = () => {
                   <span className="font-medium text-gray-900">
                     {filteredProducts.length}
                   </span>{" "}
-                  produse găsite
+                  {filteredProducts.length === 1
+                    ? "produs găsit"
+                    : "produse găsite"}
                   {(filters.category ||
                     filters.subcategory ||
                     filters.search) && (
