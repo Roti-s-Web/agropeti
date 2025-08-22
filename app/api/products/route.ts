@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { generateSlug } from "@/lib/utils/generateSlug";
 
-// GET - Fetch products with pagination and search
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
@@ -14,7 +13,6 @@ export async function GET(request: NextRequest) {
 
     const skip = (page - 1) * limit;
 
-    // Build search conditions
     const searchConditions = search
       ? {
           OR: [
@@ -59,7 +57,6 @@ export async function GET(request: NextRequest) {
       where: { inStock: true },
     });
 
-    // Fetch products with pagination
     const products = await prisma.product.findMany({
       where: searchConditions,
       orderBy: {
@@ -89,7 +86,6 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST - Create new product
 export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
@@ -112,7 +108,6 @@ export async function POST(request: NextRequest) {
       specifications,
     } = body;
 
-    // Validation
     if (
       !name ||
       !description ||

@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-// POST - Fetch multiple products by IDs
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();

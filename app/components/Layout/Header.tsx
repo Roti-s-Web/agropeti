@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X, Search, Heart, Leaf } from "lucide-react";
+import { useSession } from "next-auth/react";
+import { Menu, X, Search, Heart, Leaf, Settings } from "lucide-react";
 import { CategoryMenu } from "../UI/CategoryMenu";
 import { FavoritesModal } from "../Favorites/FavoritesModal";
 import Link from "next/link";
@@ -14,6 +15,7 @@ export const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const headerRef = useRef<HTMLDivElement>(null);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
+  const { data: session } = useSession();
 
   const pathname = usePathname();
   const [activePage, setActivePage] = useState("acasa");
@@ -166,6 +168,7 @@ export const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
+            {/* Desktop Favorites Button */}
             <button
               className="hidden lg:block p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
               title="Favorite"
@@ -176,6 +179,20 @@ export const Header = () => {
                 className="text-gray-600 hover:text-red-500 transition-colors"
               />
             </button>
+
+            {/* Desktop Admin Button - next to favorites */}
+            {session?.user?.isAdmin && (
+              <Link
+                href="/admin"
+                className="hidden lg:block p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                title="Admin Panel"
+              >
+                <Settings
+                  size={20}
+                  className="text-gray-600 hover:text-blue-500 transition-colors"
+                />
+              </Link>
+            )}
 
             {/* Mobile Search Button */}
             <button
@@ -189,6 +206,20 @@ export const Header = () => {
             >
               {isMobileSearchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
+
+            {/* Mobile Admin Button - next to search */}
+            {session?.user?.isAdmin && (
+              <Link
+                href="/admin"
+                className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+                title="Admin Panel"
+              >
+                <Settings
+                  size={20}
+                  className="text-gray-600 hover:text-blue-500 transition-colors"
+                />
+              </Link>
+            )}
 
             {/* Mobile Menu Button */}
             <button
@@ -301,6 +332,19 @@ export const Header = () => {
                 Favorite
               </button>
             </div>
+            {/* Mobile Admin in menu */}
+            {session?.user?.isAdmin && (
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <Link
+                  href="/admin"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="flex items-center gap-3 text-gray-700 hover:text-blue-600 font-medium w-full transition-colors"
+                >
+                  <Settings size={20} />
+                  Admin Panel
+                </Link>
+              </div>
+            )}
           </div>
         )}
       </div>

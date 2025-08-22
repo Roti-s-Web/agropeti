@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { authOptions } from "../../auth/[...nextauth]/route";
 import { generateSlug } from "@/lib/utils/generateSlug";
 
-// GET - Fetch single product
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -30,7 +29,6 @@ export async function GET(
   }
 }
 
-// PUT - Update product
 export async function PUT(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -55,7 +53,6 @@ export async function PUT(
       specifications,
     } = body;
 
-    // Check if product exists
     const existingProduct = await prisma.product.findUnique({
       where: { id: params.id },
     });
@@ -93,7 +90,6 @@ export async function PUT(
   }
 }
 
-// DELETE - Delete product
 export async function DELETE(
   request: NextRequest,
   { params }: { params: { id: string } }
@@ -104,7 +100,6 @@ export async function DELETE(
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    // Check if product exists
     const existingProduct = await prisma.product.findUnique({
       where: { id: params.id },
     });

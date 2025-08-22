@@ -218,7 +218,7 @@ export default function Admin() {
         </div>
 
         {/* Search and Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center mb-6">
+        <div className="flex flex-col-reverse sm:flex-row gap-4 justify-between items-start sm:items-center mb-6">
           <div className="relative w-full sm:max-w-md">
             <input
               type="text"
