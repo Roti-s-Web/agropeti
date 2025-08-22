@@ -6,12 +6,14 @@ import { generateSlug } from "@/lib/utils/generateSlug";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
+
   try {
     const product = await prisma.product.findUnique({
       where: {
-        id: params.id,
+        id: id,
       },
     });
 
@@ -31,13 +33,15 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await getServerSession(authOptions);
     if (!session?.user?.isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
+
+    const { id } = await params;
 
     const body = await request.json();
     const {
@@ -54,7 +58,7 @@ export async function PUT(
     } = body;
 
     const existingProduct = await prisma.product.findUnique({
-      where: { id: params.id },
+      where: { id: id },
     });
 
     if (!existingProduct) {
@@ -63,7 +67,7 @@ export async function PUT(
 
     const updatedProduct = await prisma.product.update({
       where: {
-        id: params.id,
+        id: id,
       },
       data: {
         name,
@@ -92,8 +96,9 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params;
   try {
     const session = await getServerSession(authOptions);
     if (!session?.user?.isAdmin) {
@@ -101,7 +106,7 @@ export async function DELETE(
     }
 
     const existingProduct = await prisma.product.findUnique({
-      where: { id: params.id },
+      where: { id: id },
     });
 
     if (!existingProduct) {
@@ -110,7 +115,7 @@ export async function DELETE(
 
     await prisma.product.delete({
       where: {
-        id: params.id,
+        id: id,
       },
     });
 

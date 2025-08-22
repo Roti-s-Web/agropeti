@@ -432,7 +432,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       <button
                         type="button"
                         onClick={() => removeImageField(index)}
-                        className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                        className="px-3 py-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors cursor-pointer"
                         disabled={loading}
                       >
                         <X size={16} />
@@ -483,7 +483,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <button
                     type="button"
                     onClick={() => removeSpecification(key)}
-                    className="ml-auto text-red-600 hover:bg-red-100 p-1 rounded"
+                    className="ml-auto text-red-600 hover:bg-red-100 p-1 rounded cursor-pointer"
                     disabled={loading}
                   >
                     <X size={14} />
@@ -587,11 +587,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               className="flex-1 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium cursor-pointer"
             >
               {loading
-                ? "Se salvează..."
+                ? "Se salvează produsul..."
                 : product
-                ? "Actualizează"
+                ? "Actualizează produsul"
                 : "Creează"}{" "}
-              produsul
             </button>
           </div>
         </form>
