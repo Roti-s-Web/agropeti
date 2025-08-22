@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { UploadApiResponse } from "cloudinary";
 import cloudinary from "@/lib/cloudinary";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "../../../lib/auth";
 
 export async function POST(request: NextRequest) {
   try {
