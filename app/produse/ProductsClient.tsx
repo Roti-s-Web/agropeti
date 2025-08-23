@@ -121,6 +121,10 @@ const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMoreProducts, setHasMoreProducts] = useState(true);
 
+  // Ref for infinite scroll observer
+  const loadMoreRef = useRef<HTMLDivElement>(null);
+  const isLoadingRef = useRef(false);
+
   const PRODUCTS_PER_PAGE = 12;
 
   const [filters, setFilters] = useState<FilterState>({
@@ -273,7 +277,7 @@ const ProductsPage = () => {
         case "oldest":
           return (
             new Date(a.createdAt as Date).getTime() -
-            new Date(b.createdAt as Date).getTime()
+            new Date(a.createdAt as Date).getTime()
           );
         case "newest":
         default:
@@ -305,15 +309,48 @@ const ProductsPage = () => {
     setHasMoreProducts(endIndex < filteredProducts.length);
   }, [filteredProducts, currentPage]);
 
-  const loadMoreProducts = () => {
-    if (!loadingMore && hasMoreProducts) {
+  // Infinite scroll logic
+  const loadMoreProducts = useCallback(() => {
+    if (!isLoadingRef.current && hasMoreProducts && !loading) {
+      isLoadingRef.current = true;
       setLoadingMore(true);
+
+      // Add a small delay to prevent too rapid loading
       setTimeout(() => {
         setCurrentPage((prev) => prev + 1);
         setLoadingMore(false);
-      }, 500);
+        isLoadingRef.current = false;
+      }, 300);
     }
-  };
+  }, [hasMoreProducts, loading]);
+
+  // Intersection Observer for infinite scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const target = entries[0];
+        if (target.isIntersecting) {
+          loadMoreProducts();
+        }
+      },
+      {
+        // Trigger when the element is 200px from being visible
+        rootMargin: "200px",
+        threshold: 0.1,
+      }
+    );
+
+    const currentRef = loadMoreRef.current;
+    if (currentRef && hasMoreProducts) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [loadMoreProducts, hasMoreProducts]);
 
   useEffect(() => {
     const params = new URLSearchParams();
@@ -463,29 +500,20 @@ const ProductsPage = () => {
                   ))}
                 </div>
 
-                {/* Load More Button */}
+                {/* Infinite Scroll Trigger & Loading Indicator */}
                 {hasMoreProducts && (
-                  <div className="flex justify-center mt-8">
-                    <button
-                      onClick={loadMoreProducts}
-                      disabled={loadingMore}
-                      type="button"
-                      name="load-more"
-                      title="Încarcă mai multe produse"
-                      className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
-                    >
-                      {loadingMore ? (
-                        <>
-                          <Loader2 className="animate-spin" size={20} />
-                          Se încarcă...
-                        </>
-                      ) : (
-                        <>
-                          Încarcă mai multe produse
-                          <ChevronDown size={20} />
-                        </>
-                      )}
-                    </button>
+                  <div
+                    ref={loadMoreRef}
+                    className="flex justify-center items-center mt-8 py-8"
+                  >
+                    {loadingMore && (
+                      <div className="flex items-center gap-2 text-green-600">
+                        <Loader2 className="animate-spin" size={20} />
+                        <span className="text-sm">
+                          Se încarcă mai multe produse...
+                        </span>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -493,6 +521,12 @@ const ProductsPage = () => {
                 <div className="text-center text-gray-500 text-sm mt-4">
                   Se afișează {displayedProducts.length} din{" "}
                   {filteredProducts.length} produse
+                  {!hasMoreProducts &&
+                    filteredProducts.length > PRODUCTS_PER_PAGE && (
+                      <div className="mt-2 text-xs text-green-600">
+                        ✓ Toate produsele au fost încărcate
+                      </div>
+                    )}
                 </div>
               </>
             ) : (
