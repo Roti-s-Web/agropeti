@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Heart, Phone, Star, Tag } from "lucide-react";
 import { Product } from "../../../types/types";
-import { useFavorites } from "../../../context/FavoritesContext";
+import { useFavorites } from "../../../context/FavoritesProvider";
 import { ContactModal } from "../UI/ContactModal";
 
 interface ProductCardProps {

@@ -26,7 +26,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
       onClick={handleBackdropClick}
     >
       <div className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all">
-        {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div>
             <h2 className="text-xl font-bold text-gray-900">Contactează-ne</h2>
@@ -44,16 +43,13 @@ export const ContactModal: React.FC<ContactModalProps> = ({
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Left Column - Contact Methods */}
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Metodele noastre de contact
               </h3>
 
-              {/* Phone */}
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-green-100 rounded-full flex-shrink-0">
                   <Phone className="text-green-600" size={20} />
@@ -73,7 +69,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </div>
               </div>
 
-              {/* WhatsApp */}
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-green-100 rounded-full flex-shrink-0">
                   <MessageCircle className="text-green-600" size={20} />
@@ -95,7 +90,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </div>
               </div>
 
-              {/* Email */}
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-blue-100 rounded-full flex-shrink-0">
                   <Mail className="text-blue-600" size={20} />
@@ -116,13 +110,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               </div>
             </div>
 
-            {/* Right Column - Business Info */}
             <div className="space-y-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Informații despre noi
               </h3>
 
-              {/* Working Hours */}
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <Clock className="text-gray-600" size={20} />
@@ -146,7 +138,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </div>
               </div>
 
-              {/* Location */}
               <div className="bg-gray-50 rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <MapPin className="text-gray-600" size={20} />
@@ -163,7 +154,6 @@ export const ContactModal: React.FC<ContactModalProps> = ({
                 </p>
               </div>
 
-              {/* Additional Info */}
               <div className="bg-green-50 border border-green-200 rounded-xl p-6">
                 <h4 className="font-semibold text-green-800 mb-3">
                   De ce să ne alegi?

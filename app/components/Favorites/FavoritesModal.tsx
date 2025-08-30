@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { X, Heart } from "lucide-react";
-import { useFavorites } from "../../../context/FavoritesContext";
+import { useFavorites } from "../../../context/FavoritesProvider";
 import { ProductCard } from "../Product/ProductCard";
 import { Product } from "@/types/types";
 
@@ -24,21 +24,17 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
       return;
     }
 
-    // actualizăm cachedProducts
     const cachedProducts = localStorage.getItem("favoriteProducts");
     let parsed: Product[] = cachedProducts ? JSON.parse(cachedProducts) : [];
 
-    // filtrăm produsele care mai sunt favorite
     parsed = parsed.filter((p) => favorites.includes(p.id));
 
     if (parsed.length === favorites.length) {
-      // cache-ul e complet și actual
       setFavoriteProducts(parsed);
       localStorage.setItem("favoriteProducts", JSON.stringify(parsed));
       return;
     }
 
-    // fetch pentru produsele noi
     const idsToFetch = favorites.filter(
       (id) => !parsed.some((p) => p.id === id)
     );
@@ -83,7 +79,6 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
         className="bg-white rounded-xl w-full max-w-3xl sm:max-w-5xl lg:max-w-6xl max-h-[80vh] overflow-hidden shadow-lg"
         ref={modalRef}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-4 sm:p-6 border-b">
           <div className="flex items-center gap-3">
             <Heart className="text-red-500" size={24} />
@@ -99,7 +94,6 @@ export const FavoritesModal: React.FC<FavoritesModalProps> = ({
           </button>
         </div>
 
-        {/* Content */}
         <div className="p-4 sm:p-6 overflow-y-auto max-h-[60vh]">
           {favoriteProducts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">

@@ -9,7 +9,6 @@ export const ScrollToTopButton = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // Calculate scroll progress
       const scrollTop = window.pageYOffset;
       const docHeight =
         document.documentElement.scrollHeight - window.innerHeight;
@@ -17,7 +16,6 @@ export const ScrollToTopButton = () => {
 
       setScrollProgress(scrollPercent);
 
-      // Show button when page is scrolled more than 300px
       if (scrollTop > 300) {
         setIsVisible(true);
       } else {
@@ -39,8 +37,7 @@ export const ScrollToTopButton = () => {
     });
   };
 
-  // Calculate stroke dash offset for circular progress
-  const circumference = 2 * Math.PI * 22; // radius = 22
+  const circumference = 2 * Math.PI * 22;
   const strokeDashoffset =
     circumference - (scrollProgress / 100) * circumference;
 
@@ -54,10 +51,8 @@ export const ScrollToTopButton = () => {
           className="fixed bottom-5 right-5 z-50 group hover:scale-110 transition-all duration-300 ease-in-out cursor-pointer"
           aria-label="Scroll to top"
         >
-          {/* SVG Circle Progress */}
           <div className="relative">
             <svg className="w-14 h-14 transform -rotate-90" viewBox="0 0 48 48">
-              {/* Background circle */}
               <circle
                 cx="24"
                 cy="24"
@@ -68,7 +63,6 @@ export const ScrollToTopButton = () => {
                 className="opacity-20"
               />
 
-              {/* Progress circle */}
               <circle
                 cx="24"
                 cy="24"
@@ -91,7 +85,6 @@ export const ScrollToTopButton = () => {
               />
             </svg>
 
-            {/* Button content */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-white hover:bg-green-50 rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-100">
                 <ChevronUp
@@ -110,7 +103,6 @@ export const ScrollToTopButton = () => {
             </div>
           </div>
 
-          {/* Tooltip */}
           <div className="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="bg-gray-800 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
               Mergi sus

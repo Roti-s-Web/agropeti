@@ -81,7 +81,6 @@ export const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
           <Link
             href="/"
             className="flex items-center gap-3 flex-shrink-0"
@@ -96,7 +95,6 @@ export const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Search */}
           <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <div className="w-full relative">
               <div className="relative">
@@ -130,7 +128,6 @@ export const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <Link
               href="/"
@@ -166,9 +163,7 @@ export const Header = () => {
             </Link>
           </nav>
 
-          {/* Actions */}
           <div className="flex items-center gap-2">
-            {/* Desktop Favorites Button */}
             <button
               className="hidden lg:block p-2 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
               title="Favorite"
@@ -180,7 +175,6 @@ export const Header = () => {
               />
             </button>
 
-            {/* Desktop Admin Button - next to favorites */}
             {session?.user?.isAdmin && (
               <Link
                 href="/admin"
@@ -194,7 +188,6 @@ export const Header = () => {
               </Link>
             )}
 
-            {/* Mobile Search Button */}
             <button
               onClick={toggleMobileSearch}
               className={`lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-all duration-200 ${
@@ -207,7 +200,6 @@ export const Header = () => {
               {isMobileSearchOpen ? <X size={20} /> : <Search size={20} />}
             </button>
 
-            {/* Mobile Admin Button - next to search */}
             {session?.user?.isAdmin && (
               <Link
                 href="/admin"
@@ -221,7 +213,6 @@ export const Header = () => {
               </Link>
             )}
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
@@ -238,7 +229,6 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Search Input */}
         {isMobileSearchOpen && (
           <div className="lg:hidden pb-4 border-t border-gray-200 pt-4 animate-in slide-in-from-top duration-200">
             <div className="relative">
@@ -273,12 +263,10 @@ export const Header = () => {
           </div>
         )}
 
-        {/* Category Menu - Desktop */}
         <div className="hidden lg:block border-t border-gray-200">
           <CategoryMenu setIsOpen={setIsMenuOpen} />
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col gap-4">
@@ -322,7 +310,7 @@ export const Header = () => {
             <div className="mt-4 pt-4 border-t border-gray-200">
               <CategoryMenu setIsOpen={setIsMenuOpen} />
             </div>
-            {/* Mobile Favorites in menu */}
+
             <div
               className="mt-4 pt-4 border-t border-gray-200"
               onClick={() => setIsFavoritesOpen(true)}
@@ -332,7 +320,7 @@ export const Header = () => {
                 Favorite
               </button>
             </div>
-            {/* Mobile Admin in menu */}
+
             {session?.user?.isAdmin && (
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <Link

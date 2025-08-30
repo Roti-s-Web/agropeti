@@ -121,7 +121,6 @@ const ProductsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMoreProducts, setHasMoreProducts] = useState(true);
 
-  // Ref for infinite scroll observer
   const loadMoreRef = useRef<HTMLDivElement>(null);
   const isLoadingRef = useRef(false);
 
@@ -175,11 +174,9 @@ const ProductsPage = () => {
     }));
   }, [searchParams]);
 
-  // Filter and sort products
   useEffect(() => {
     let filtered = [...products];
 
-    // Search filter
     if (filters.search) {
       const searchLower = filters.search.toLowerCase();
       filtered = filtered.filter(
@@ -191,21 +188,18 @@ const ProductsPage = () => {
       );
     }
 
-    // Category filter
     if (filters.category) {
       filtered = filtered.filter(
         (product) => product.category === filters.category
       );
     }
 
-    // Subcategory filter
     if (filters.subcategory) {
       filtered = filtered.filter(
         (product) => product.subcategory === filters.subcategory
       );
     }
 
-    // Price range filter
     if (filters.minPrice) {
       const minPrice = parseFloat(filters.minPrice);
       filtered = filtered.filter((product) => {
@@ -226,7 +220,6 @@ const ProductsPage = () => {
       });
     }
 
-    // Special filters
     if (filters.onSale) {
       filtered = filtered.filter(
         (product) => product.discount && product.discount > 0
@@ -237,7 +230,6 @@ const ProductsPage = () => {
       filtered = filtered.filter((product) => product.featured);
     }
 
-    // Stock filters
     const stockFilters: boolean[] = [];
     if (filters.inStock) stockFilters.push(true);
     if (filters.outOfStock) stockFilters.push(false);
@@ -248,13 +240,10 @@ const ProductsPage = () => {
       );
     }
 
-    // Sorting with priority for featured products
     filtered.sort((a, b) => {
-      // Featured products always come first when searching
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
 
-      // Then sort by selected criteria
       switch (filters.sortBy) {
         case "price-low":
           const priceA = a.discount
@@ -288,7 +277,6 @@ const ProductsPage = () => {
       }
     });
 
-    // Final sort: in-stock products before out-of-stock (but after featured priority)
     filtered.sort((a, b) => {
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
@@ -309,13 +297,11 @@ const ProductsPage = () => {
     setHasMoreProducts(endIndex < filteredProducts.length);
   }, [filteredProducts, currentPage]);
 
-  // Infinite scroll logic
   const loadMoreProducts = useCallback(() => {
     if (!isLoadingRef.current && hasMoreProducts && !loading) {
       isLoadingRef.current = true;
       setLoadingMore(true);
 
-      // Add a small delay to prevent too rapid loading
       setTimeout(() => {
         setCurrentPage((prev) => prev + 1);
         setLoadingMore(false);
@@ -324,7 +310,6 @@ const ProductsPage = () => {
     }
   }, [hasMoreProducts, loading]);
 
-  // Intersection Observer for infinite scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -334,7 +319,6 @@ const ProductsPage = () => {
         }
       },
       {
-        // Trigger when the element is 200px from being visible
         rootMargin: "200px",
         threshold: 0.1,
       }

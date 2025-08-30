@@ -7,15 +7,12 @@ export default function NotFound() {
     <div className="min-h-screen bg-gray-50 flex items-center justify-center">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto text-center">
-          {/* 404 Visual */}
           <div className="mb-12">
             <div className="relative">
-              {/* Large 404 */}
               <div className="text-8xl md:text-9xl font-bold text-green-100 select-none">
                 404
               </div>
 
-              {/* Tractor icon overlay */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="bg-green-600 p-6 rounded-full shadow-lg">
                   <Leaf className="text-white" size={48} />
@@ -24,7 +21,6 @@ export default function NotFound() {
             </div>
           </div>
 
-          {/* Error Message */}
           <div className="mb-12">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Pagina nu a fost găsită
@@ -36,7 +32,6 @@ export default function NotFound() {
             </p>
           </div>
 
-          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Link
               href="/"
@@ -63,7 +58,6 @@ export default function NotFound() {
             </Link>
           </div>
 
-          {/* Helpful Links */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
               <div className="bg-green-100 p-3 rounded-full w-12 h-12 mx-auto mb-4 flex items-center justify-center">
@@ -123,7 +117,6 @@ export default function NotFound() {
             </div>
           </div>
 
-          {/* Popular Categories */}
           <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 mb-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">
               Categorii populare
@@ -171,7 +164,6 @@ export default function NotFound() {
             </div>
           </div>
 
-          {/* Contact Section */}
           <div className="bg-green-600 text-white rounded-xl p-8">
             <div className="flex items-center justify-center gap-3 mb-4">
               <Leaf size={32} />

@@ -83,7 +83,6 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 
       {isOpen && (
         <>
-          {/* Overlay pentru mobile */}
           <div
             className="fixed inset-0 z-10 lg:hidden "
             onClick={() => setIsOpen(false)}
@@ -150,7 +149,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
 
   return (
     <div className="space-y-4">
-      {/* Price Inputs */}
       <div className="grid grid-cols-2 gap-2">
         <div>
           <input
@@ -180,7 +178,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
         </div>
       </div>
 
-      {/* Dual Range Slider */}
       <div className="px-2">
         <div className="relative h-10 mb-4">
           {/* Track Background */}

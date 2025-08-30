@@ -66,10 +66,8 @@ export function ProductProvider({ children }: { children: ReactNode }) {
         const data = await response.json();
 
         if (page === 1) {
-          // First page or new search - replace products
           setProducts(data.products);
         } else {
-          // Loading more - append products
           setProducts((prev) => [...prev, ...data.products]);
         }
 

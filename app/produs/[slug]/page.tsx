@@ -14,26 +14,10 @@ import {
 } from "lucide-react";
 import { ProductImageGallery } from "../../components/Product/ProductImageGallery";
 import { ProductActions } from "@/app/components/Product/ProductActions";
+import { Product } from "@/types/types";
 import { prisma } from "../../../lib/prisma";
 import Markdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
-
-type DatabaseProduct = {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  images: string[];
-  category: string;
-  subcategory: string;
-  inStock: boolean;
-  featured: boolean;
-  discount: number | null;
-  specifications: Record<string, string> | null;
-  slug: string | null;
-  createdAt: Date;
-  updatedAt: Date;
-};
 
 function formatCategoryName(name: string): string {
   return name
@@ -42,7 +26,7 @@ function formatCategoryName(name: string): string {
     .join(" ");
 }
 
-type ProductWithSlug = Omit<DatabaseProduct, "slug"> & {
+type ProductWithSlug = Omit<Product, "slug"> & {
   slug: string;
 };
 
@@ -80,7 +64,7 @@ export default async function ProductDetailPage({
   try {
     const fetchedProduct = (await prisma.product.findUnique({
       where: { slug: slug },
-    })) as DatabaseProduct | null;
+    })) as Product | null;
 
     if (!fetchedProduct || !fetchedProduct.slug) {
       notFound();
@@ -100,7 +84,7 @@ export default async function ProductDetailPage({
       orderBy: {
         createdAt: "desc",
       },
-    })) as DatabaseProduct[];
+    })) as Product[];
 
     relatedProducts = fetchedRelatedProducts.filter(
       (p): p is ProductWithSlug => p.slug !== null

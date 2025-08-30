@@ -78,7 +78,6 @@ export default function Featured({
         </div>
       </section>
 
-      {/* Featured Products Slider */}
       {featuredProducts.length > 0 ? (
         <ProductGrid products={featuredProducts as Product[]} />
       ) : (

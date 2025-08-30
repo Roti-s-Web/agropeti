@@ -36,7 +36,6 @@ export const CategoryMenu = ({
               />
             </Link>
 
-            {/* Dropdown Menu */}
             {activeCategory === category.id && (
               <div
                 className="absolute top-9 left-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-xl z-50 min-w-[220px] max-w-[280px]"

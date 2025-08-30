@@ -54,7 +54,6 @@ export const ProductForm: React.FC<ProductFormProps> = ({
 
   const selectedCategory = categories.find((c) => c.id === formData.category);
 
-  // Calculate discounted price
   const originalPrice = parseFloat(formData.price) || 0;
   const discountPercent = parseFloat(formData.discount) || 0;
   const discountedPrice =

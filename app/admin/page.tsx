@@ -65,7 +65,6 @@ export default function Admin() {
     }
   }, [session, status, router, fetchProducts]);
 
-  // Handle search with debouncing
   useEffect(() => {
     if (searchTimeoutRef.current) {
       clearTimeout(searchTimeoutRef.current);
@@ -77,7 +76,6 @@ export default function Admin() {
         await searchProducts(searchQuery.trim());
         setIsSearching(false);
       } else {
-        // If search is empty, fetch all products
         await fetchProducts();
       }
     }, 500);
@@ -469,12 +467,10 @@ export default function Admin() {
         ) : null}
       </div>
 
-      {/* Product Form Modal */}
       {showForm && (
         <ProductForm product={editingProduct} onClose={handleCloseForm} />
       )}
 
-      {/* Delete Modal */}
       {deleteModalOpen && (
         <DeleteModal
           isOpen={deleteModalOpen}

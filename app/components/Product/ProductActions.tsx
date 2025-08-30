@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Phone, Share2, Heart } from "lucide-react";
-import { useFavorites } from "../../../context/FavoritesContext";
+import { useFavorites } from "../../../context/FavoritesProvider";
 import { ContactModal } from "../UI/ContactModal";
 
 interface ProductActionsProps {
@@ -37,9 +37,8 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
           url: window.location.href,
         });
       } else {
-        // Fallback: copy to clipboard
         await navigator.clipboard.writeText(window.location.href);
-        // You could show a toast notification here
+
         alert("Link-ul a fost copiat în clipboard!");
       }
     } catch (error) {
@@ -51,7 +50,7 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
-    e.preventDefault(); // prevent navigating when clicking favorite
+    e.preventDefault();
     if (isProductFavorite) {
       removeFromFavorites(product.id);
     } else {
@@ -62,7 +61,6 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   return (
     <>
       <div className="flex flex-col sm:flex-row gap-3 w-full">
-        {/* Contact */}
         <button
           onClick={handleContact}
           title="Contactează pentru comandă"
@@ -73,7 +71,6 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
           <span>Contactează pentru comandă</span>
         </button>
 
-        {/* Favorite */}
         <button
           onClick={handleFavoriteClick}
           name="favorite"
@@ -95,7 +92,6 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
           </span>
         </button>
 
-        {/* Share */}
         <button
           onClick={handleShare}
           disabled={isSharing}
@@ -108,7 +104,6 @@ export const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         </button>
       </div>
 
-      {/* Contact Modal */}
       <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}

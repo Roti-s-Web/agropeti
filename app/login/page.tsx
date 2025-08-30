@@ -31,7 +31,6 @@ export default function Login() {
         return;
       }
 
-      // Check if user is admin
       const session = await getSession();
       if (session?.user?.isAdmin) {
         router.push("/admin");

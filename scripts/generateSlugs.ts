@@ -7,7 +7,6 @@ async function main() {
   for (const product of products) {
     const slug = generateSlug(product.name);
 
-    // Check if slug is already set or duplicate
     if (!product.slug || product.slug !== slug) {
       try {
         await prisma.product.update({
