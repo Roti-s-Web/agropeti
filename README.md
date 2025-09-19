@@ -22,7 +22,7 @@
 
 ### 🎨 Design & UX
 
-- **Design modern** în tema agriculturii cu paleta de culori verde
+- **Design modern** în tema agriculturii cu paleta de culori verde & alb
 - **Interfață responsive** optimizată pentru toate dispozitivele
 - **Navigare intuitivă** cu categorii clare și structură logică
 
@@ -35,7 +35,7 @@
 ### 🔍 Căutare & Filtrare
 
 - **Sistem de căutare avansat** după categorie, cuvinte cheie și interval de preț
-- **Sortare** după preț, noutate și disponibilitate
+- **Sortare** după preț, nume și noutate 
 - **Rezultate instantanee** cu performanță optimizată
 
 ### 📦 Produse
@@ -43,7 +43,7 @@
 - **Pagini individuale** cu descrieri și specificații complete
 - **Galerii foto** pentru fiecare produs
 - **Informații tehnice** detaliate pentru echipamente agricole
-- **Sistem de recomandări** pentru produse complementare
+- **Sistem de recomandări** pentru produse similare
 
 ### 📞 Comandă & Contact
 
@@ -55,20 +55,20 @@
 ### 🏗️ Arhitectură
 
 - ✅ Crearea unui design modern care să reflecte identitatea agricolă
-- ✅ Implementarea unui sistem de gestionare stocuri eficient și intuitiv
-- ✅ Organizarea informațiilor complexe despre produse agricole specializate
+- ✅ Implementarea unui sistem de gestionare stocuri eficient
+- ✅ Organizarea informațiilor complexe despre produse agricole
 
 ### ⚡ Performanță
 
-- ✅ Optimizarea sistemului de căutare pentru performanță rapidă
-- ✅ Încărcare rapidă a imaginilor produselor cu Next.js Image
-- ✅ Lazy loading și paginare inteligentă pentru cataloage mari
+- ✅ Optimizarea sistemului de căutare pentru performanță 
+- ✅ Încărcare rapidă a imaginilor produselor
+- ✅ Lazy loading și paginare inteligentă pentru produse
 
 ### 🎨 UX/UI
 
 - ✅ Echilibrarea funcționalităților administrative cu simplitatea interfaței
 - ✅ Design responsive pentru toate tipurile de dispozitive
-- ✅ Navigare intuitivă pentru utilizatori cu experiență tehnică variată
+- ✅ Navigare intuitivă cu experiență tehnică variată
 
 ## 🛠️ Tech Stack
 
