@@ -1,19 +1,21 @@
 # 🌾 AgroPeti - Magazin Online Agricol
 
-![AgroPeti Banner](https://via.placeholder.com/1200x400/22c55e/ffffff?text=AgroPeti+-+Solutii+Agricole+Premium)
+![AgroPeti_Banner](https://github.com/user-attachments/assets/6e6200ac-f0f7-4416-b7a0-71af5696ea96)
+
+
 
 AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
 
 ## 📸 Preview
 
 <div align="center">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Homepage+-+Design+Modern" alt="Homepage" width="45%">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Catalog+Produse" alt="Catalog" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-1.webp&w=3840&q=90" alt="Catalog" width="49%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-2.webp&w=3840&q=90" alt="Product Details" width="49%">
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Panou+Admin" alt="Admin Panel" width="45%">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Detalii+Produs" alt="Product Details" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-5.webp&w=3840&q=90" alt="Admin Panel" width="49%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-3.webp&w=3840&q=90" alt="Contact" width="49%">
 </div>
 
 ## ✨ Funcționalități
@@ -77,12 +79,12 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## 📱 Screenshots Mobile
+## 📱 Mobile View
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Homepage" alt="Mobile Homepage" width="30%">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Catalog" alt="Mobile Catalog" width="30%">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Product" alt="Mobile Product" width="30%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314049/agropeti.vercel.app__iPhone_XR_fv3xzs.png" alt="Mobile Homepage" width="32%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314043/agropeti.vercel.app_admin_iPhone_XR_dxagkw.png" alt="Mobile Product Detailes" width="32%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314038/agropeti.vercel.app_admin_iPhone_XR_1_oodih3.png" alt="Mobile Admin" width="32%">
 </div>
 
 ## 🚀 Instalare și Rulare
