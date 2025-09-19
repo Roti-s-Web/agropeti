@@ -1,10 +1,10 @@
 # 🌾 AgroPeti - Magazin Online Agricol
 
-![AgroPeti_Banner](https://github.com/user-attachments/assets/6e6200ac-f0f7-4416-b7a0-71af5696ea96)
+ <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758315401/Untitled_design_2_crsx2h.png" alt="Banner" width="100%">
 
 
 
-AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
+**AgroPeti** este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
 
 ## 📸 Preview
 
@@ -22,7 +22,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 
 ### 🎨 Design & UX
 
-- **Design modern** în tema agriculturii cu paleta de culori verde
+- **Design modern** în tema agriculturii cu paleta de culori verde & alb
 - **Interfață responsive** optimizată pentru toate dispozitivele
 - **Navigare intuitivă** cu categorii clare și structură logică
 
@@ -35,8 +35,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ### 🔍 Căutare & Filtrare
 
 - **Sistem de căutare avansat** după categorie, cuvinte cheie și interval de preț
-- **Filtrare după disponibilitate** în stoc
-- **Sortare** după preț, stare și disponibilitate
+- **Sortare** după preț, nume și noutate 
 - **Rezultate instantanee** cu performanță optimizată
 
 ### 📦 Produse
@@ -44,7 +43,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 - **Pagini individuale** cu descrieri și specificații complete
 - **Galerii foto** pentru fiecare produs
 - **Informații tehnice** detaliate pentru echipamente agricole
-- **Sistem de recomandări** pentru produse complementare
+- **Sistem de recomandări** pentru produse similare
 
 ### 📞 Comandă & Contact
 
@@ -56,22 +55,22 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ### 🏗️ Arhitectură
 
 - ✅ Crearea unui design modern care să reflecte identitatea agricolă
-- ✅ Implementarea unui sistem de gestionare stocuri eficient și intuitiv
-- ✅ Organizarea informațiilor complexe despre produse agricole specializate
+- ✅ Implementarea unui sistem de gestionare stocuri eficient
+- ✅ Organizarea informațiilor complexe despre produse agricole
 
 ### ⚡ Performanță
 
-- ✅ Optimizarea sistemului de căutare pentru performanță rapidă
-- ✅ Încărcare rapidă a imaginilor produselor cu Next.js Image
-- ✅ Lazy loading și paginare inteligentă pentru cataloage mari
+- ✅ Optimizarea sistemului de căutare pentru performanță 
+- ✅ Încărcare rapidă a imaginilor produselor
+- ✅ Lazy loading și paginare inteligentă pentru produse
 
 ### 🎨 UX/UI
 
 - ✅ Echilibrarea funcționalităților administrative cu simplitatea interfaței
 - ✅ Design responsive pentru toate tipurile de dispozitive
-- ✅ Navigare intuitivă pentru utilizatori cu experiență tehnică variată
+- ✅ Navigare intuitivă cu experiență tehnică variată
 
-## 🛠️ Stack Tehnologic
+## 🛠️ Tech Stack
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
