@@ -4,7 +4,7 @@
 
 
 
-AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
+**AgroPeti** este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
 
 ## 📸 Preview
 
