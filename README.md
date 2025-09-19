@@ -1,36 +1,165 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🌾 AgroPeti - Magazin Online Agricol
 
-## Getting Started
+![AgroPeti Banner](https://via.placeholder.com/1200x400/22c55e/ffffff?text=AgroPeti+-+Solutii+Agricole+Premium)
 
-First, run the development server:
+AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
+
+## 📸 Preview
+
+<div align="center">
+  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Homepage+-+Design+Modern" alt="Homepage" width="45%">
+  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Catalog+Produse" alt="Catalog" width="45%">
+</div>
+
+<div align="center">
+  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Panou+Admin" alt="Admin Panel" width="45%">
+  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Detalii+Produs" alt="Product Details" width="45%">
+</div>
+
+## ✨ Funcționalități
+
+### 🎨 Design & UX
+
+- **Design modern** în tema agriculturii cu paleta de culori verde
+- **Interfață responsive** optimizată pentru toate dispozitivele
+- **Navigare intuitivă** cu categorii clare și structură logică
+
+### 🛠️ Administrare
+
+- **Panou administrativ complet** pentru gestionarea stocurilor
+- **Creare și editare produse** cu specificații detaliate
+- **Sistem de aplicare reduceri** și gestionare produse recomandate
+- **Gestionare categorii și subcategorii** flexibilă
+
+### 🔍 Căutare & Filtrare
+
+- **Sistem de căutare avansat** după categorie, cuvinte cheie și interval de preț
+- **Filtrare după disponibilitate** în stoc
+- **Sortare** după preț, popularitate și noutate
+- **Rezultate instantanee** cu performanță optimizată
+
+### 📦 Produse
+
+- **Pagini individuale** cu descrieri și specificații complete
+- **Galerii foto** pentru fiecare produs
+- **Informații tehnice** detaliate pentru echipamente agricole
+- **Sistem de recomandări** pentru produse complementare
+
+### 📞 Comandă & Contact
+
+- **Sistem de comandă** prin contact telefonic direct
+- **Formular de contact** integrat
+- **Informații complete** despre modalități de livrare
+
+## 🎯 Provocări Tehnice
+
+### 🏗️ Arhitectură
+
+- ✅ Crearea unui design modern care să reflecte identitatea agricolă
+- ✅ Implementarea unui sistem de gestionare stocuri eficient și intuitiv
+- ✅ Organizarea informațiilor complexe despre produse agricole specializate
+
+### ⚡ Performanță
+
+- ✅ Optimizarea sistemului de căutare pentru performanță rapidă
+- ✅ Încărcare rapidă a imaginilor produselor cu Next.js Image
+- ✅ Lazy loading și paginare inteligentă pentru cataloage mari
+
+### 🎨 UX/UI
+
+- ✅ Echilibrarea funcționalităților administrative cu simplitatea interfaței
+- ✅ Design responsive pentru toate tipurile de dispozitive
+- ✅ Navigare intuitivă pentru utilizatori cu experiență tehnică variată
+
+## 🏆 Rezultate
+
+![Stats](https://via.placeholder.com/800x200/22c55e/ffffff?text=Performanta+Excelenta+%7C+Administrare+Simpla+%7C+UX+Optimizat)
+
+### 💼 Pentru Business
+
+- **Platformă completă și profesională** pentru vânzarea de produse agricole
+- **Sistem de administrare simplu** și eficient pentru gestionarea businessului
+- **Contact direct cu clienții** prin sistemul de comandă telefonică
+- **Creșterea vizibilității** produselor prin design atractiv
+
+### 👥 Pentru Utilizatori
+
+- **Experiență de utilizare optimizată** pentru căutarea rapidă de produse
+- **Informații complete** pentru luarea deciziilor de cumpărare
+- **Performanță excelentă** și încărcare rapidă a paginilor
+- **Interfață intuitivă** ușor de navigat
+
+## 🛠️ Stack Tehnologic
+
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+
+## 📱 Screenshots Mobile
+
+<div align="center">
+  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Homepage" alt="Mobile Homepage" width="30%">
+  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Catalog" alt="Mobile Catalog" width="30%">
+  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Product" alt="Mobile Product" width="30%">
+</div>
+
+## 🚀 Instalare și Rulare
 
 ```bash
+# Clonează repository-ul
+git clone https://github.com/yourusername/agropeti-website.git
+
+# Navighează în directorul proiectului
+cd agropeti-website
+
+# Instalează dependențele
+npm install
+
+# Pornește serverul de dezvoltare
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔧 Configurare
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Creează fișierul .env.local cu variabilele necesare
+cp .env.example .env.local
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Editează .env.local cu datele tale
+MONGODB_URI=your_mongodb_connection_string
+NEXTAUTH_SECRET=your_nextauth_secret
+NEXTAUTH_URL=http://localhost:3000
+```
 
-## Learn More
+## 🎨 Design System
 
-To learn more about Next.js, take a look at the following resources:
+### Paleta de Culori
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Verde Principal**: `#22c55e` - Simbolizează agricultura și natura
+- **Verde Închis**: `#15803d` - Pentru accenturi și hover states
+- **Gri**: `#6b7280` - Pentru text secundar și borduri
+- **Alb**: `#ffffff` - Fundal principal, curățenie și simplitate
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Tipografie
 
-## Deploy on Vercel
+- **Titluri**: Inter, sans-serif - Modern și lizibil
+- **Text**: Inter, sans-serif - Consistent în toată aplicația
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📞 Contact & Suport
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pentru întrebări tehnice sau suport:
+
+- 📧 Email: support@agropeti.ro
+- 📱 Telefon: +40 XXX XXX XXX
+- 🌐 Website: [agropeti.ro](https://agropeti.ro)
+
+---
+
+<div align="center">
+  <p>🌱 Dezvoltat cu ❤️ pentru comunitatea agricolă românească</p>
+  
+  ![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge)
+  ![Romanian Agriculture](https://img.shields.io/badge/🌾%20Romanian-Agriculture-green?style=for-the-badge)
+</div>
