@@ -83,7 +83,7 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent placeholder:text-gray-400 focus:outline-none  text-gray-900"
-                placeholder="Email"
+                placeholder="admin@agropeti.ro"
                 required
                 disabled={loading}
               />
@@ -129,6 +129,10 @@ export default function Login() {
             {loading ? "Se conectează..." : "Conectează-te"}
           </button>
         </form>
+
+        <div className="text-center text-sm text-gray-500">
+          <p>Cont demo: admin@agropeti.ro / admin123</p>
+        </div>
       </div>
     </div>
   );
