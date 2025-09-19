@@ -43,7 +43,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         href={`/produs/${product.slug}`}
         className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group block"
       >
-        {/* Image Container */}
         <div className="relative aspect-square overflow-hidden bg-gray-100">
           <Image
             src={product.images[0]}
@@ -149,7 +148,6 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
       </Link>
 
-      {/* Contact Modal */}
       <ContactModal
         isOpen={isContactModalOpen}
         onClose={() => setIsContactModalOpen(false)}

@@ -30,7 +30,6 @@ export default function Termeni() {
         </nav>
 
         <div className="max-w-4xl mx-auto">
-          {/* Header */}
           <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-200 mb-8">
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-green-100 p-3 rounded-xl">
@@ -54,7 +53,6 @@ export default function Termeni() {
             </p>
           </div>
 
-          {/* Content Sections */}
           <div className="space-y-8">
             {/* Informații generale */}
             <section className="bg-white rounded-xl p-8 shadow-sm border border-gray-200">
@@ -323,7 +321,6 @@ export default function Termeni() {
             </section>
           </div>
 
-          {/* Contact footer */}
           <div className="bg-green-600 text-white rounded-xl p-6 mt-8">
             <h3 className="text-lg font-bold mb-4">Aveți întrebări?</h3>
             <p className="mb-4">

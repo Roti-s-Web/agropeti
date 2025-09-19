@@ -6,7 +6,6 @@ import { authOptions } from "../../../lib/auth";
 
 export async function POST(request: NextRequest) {
   try {
-    // Check authentication
     const session = await getServerSession(authOptions);
     if (!session?.user?.isAdmin) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -19,11 +18,9 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    // Convert file to buffer
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    // Upload to Cloudinary
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader
         .upload_stream(

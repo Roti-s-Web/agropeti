@@ -1,4 +1,4 @@
-import { prisma } from "./prisma";
+import { prisma } from "../prisma";
 import { unstable_cache } from "next/cache";
 import { Product } from "@/types/types";
 

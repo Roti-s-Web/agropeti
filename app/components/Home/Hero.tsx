@@ -1,16 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Phone, Leaf } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section
-      className="relative text-white overflow-hidden bg-cover bg-center bg-no-repeat min-h-[600px] flex items-center"
-      style={{
-        backgroundImage: `url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80')`,
-      }}
-    >
-      <div className="absolute inset-0 bg-green-900/70"></div>
-      <div className="relative container mx-auto px-4 py-24">
+    <section className="relative text-white overflow-hidden min-h-[600px] flex items-center">
+      <Image
+        src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2940&q=80"
+        alt="Agricultural field with modern farming equipment"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+        quality={85}
+      />
+
+      <div className="absolute inset-0 bg-green-900/70 z-10"></div>
+
+      <div className="relative container mx-auto px-4 py-24 z-20">
         <div className="max-w-4xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="bg-white/20 p-3 rounded-full backdrop-blur-sm">

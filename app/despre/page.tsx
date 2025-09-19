@@ -1,11 +1,9 @@
 import Hero from "../components/About/Hero";
 import Story from "../components/About/Story";
 import Stats from "../components/About/Stats";
-import dynamic from "next/dynamic";
-
-const WhyChooseUs = dynamic(() => import("../components/About/WhyChooseUs"));
-const Team = dynamic(() => import("../components/About/Team"));
-const CTA = dynamic(() => import("../components/About/CTA"));
+import WhyChooseUs from "../components/About/WhyChooseUs";
+import Team from "../components/About/Team";
+import CTA from "../components/About/CTA";
 
 export default function About() {
   return (

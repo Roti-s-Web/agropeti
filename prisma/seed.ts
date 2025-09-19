@@ -4,9 +4,8 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
-  console.log("🌱 Seeding database...");
+  console.log("Seeding database...");
 
-  // Create admin user
   const adminEmail = process.env.ADMIN_EMAIL || "admin@agropeti.ro";
   const adminPassword = process.env.ADMIN_PASSWORD || "admin123";
 
@@ -25,7 +24,6 @@ async function main() {
 
   console.log("✅ Admin user created:", adminUser.email);
 
-  // Sample products data
   const sampleProducts = [
     {
       name: "Îngrășământ NPK 15-15-15",
@@ -85,7 +83,6 @@ async function main() {
     },
   ];
 
-  // Create sample products
   for (const productData of sampleProducts) {
     const product = await prisma.product.upsert({
       where: {

@@ -4,7 +4,6 @@ export default function Contact() {
   return (
     <div className="py-16 bg-gray-50 min-h-screen">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
             Ia legătura cu noi
@@ -16,7 +15,6 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Info */}
           <div className="space-y-8">
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
@@ -96,7 +94,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Quick Contact */}
             <div className="bg-green-600 text-white p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-4">Comandă prin telefon</h3>
               <p className="text-green-100 mb-4">
@@ -114,9 +111,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Map & Additional Info */}
           <div className="space-y-8">
-            {/* Map Placeholder */}
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
               <iframe
                 src="https://www.google.com/maps?q=46.667500448101,22.349721468451925&hl=en&z=16&output=embed"
@@ -129,7 +124,6 @@ export default function Contact() {
               ></iframe>
             </div>
 
-            {/* FAQ Section */}
             <div className="bg-white p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-bold text-gray-900 mb-4">
                 Întrebări frecvente
@@ -178,7 +172,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Why Choose Us */}
             <div className="bg-blue-50 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
                 <Users size={24} />
@@ -219,7 +212,6 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
         <div className="mt-16 text-center bg-white p-8 rounded-xl shadow-sm">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">
             Pregătit să plasezi o comandă?

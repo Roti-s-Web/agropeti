@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Layout/Header";
 import { Overheader } from "./components/Layout/Overheader";
@@ -8,16 +7,6 @@ import { ScrollToTopButton } from "./components/Layout/ScrollToTopButton";
 import AuthProvider from "@/context/AuthProvider";
 import { ProductProvider } from "@/context/ProductProvider";
 import { FavoritesProvider } from "@/context/FavoritesProvider";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -41,10 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="ro">
+      <body>
         <AuthProvider>
           <ProductProvider>
             <FavoritesProvider>

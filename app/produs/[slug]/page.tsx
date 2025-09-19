@@ -130,7 +130,6 @@ export default async function ProductDetailPage({
         </nav>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Image Gallery */}
           <ProductImageGallery
             images={product.images}
             productName={product.name}
@@ -138,7 +137,6 @@ export default async function ProductDetailPage({
 
           {/* Product Info */}
           <div className="space-y-6">
-            {/* Header */}
             <div>
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 {product.name}
@@ -253,7 +251,6 @@ export default async function ProductDetailPage({
 
         {/* Product Details */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          {/* Description */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -304,7 +301,6 @@ export default async function ProductDetailPage({
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Contact Info */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Ai nevoie de ajutor?
@@ -332,7 +328,6 @@ export default async function ProductDetailPage({
               </div>
             </div>
 
-            {/* Category Info */}
             <div className="bg-white rounded-xl p-6 border border-gray-200">
               <h3 className="text-lg font-bold text-gray-900 mb-4">
                 Categorie
@@ -361,7 +356,6 @@ export default async function ProductDetailPage({
           </div>
         </div>
 
-        {/* Related Products */}
         {relatedProducts.length > 0 && (
           <section className="bg-white rounded-xl p-6 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">

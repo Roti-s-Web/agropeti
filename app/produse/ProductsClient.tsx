@@ -65,7 +65,6 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 
       {isOpen && (
         <>
-          {/* Overlay pentru mobile */}
           <div
             className="fixed inset-0 z-10 lg:hidden"
             onClick={() => setIsOpen(false)}
@@ -409,7 +408,6 @@ const ProductsPage = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-4 sm:py-8">
         <div className="flex flex-col-reverse lg:flex-row gap-3 lg:gap-8">
-          {/* Filters Sidebar */}
           <div className="order-2 lg:order-1">
             <ProductsFilters
               filters={filters}
@@ -423,9 +421,7 @@ const ProductsPage = () => {
             />
           </div>
 
-          {/* Products Grid */}
           <div className="flex-1 order-1 lg:order-2">
-            {/* Results Header */}
             <div className="flex flex-row items-center justify-between mb-4 sm:mb-6 gap-3">
               <div>
                 <p className="text-gray-600 text-sm sm:text-base">
@@ -475,7 +471,6 @@ const ProductsPage = () => {
               </div>
             </div>
 
-            {/* Products Grid */}
             {displayedProducts.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
@@ -501,7 +496,6 @@ const ProductsPage = () => {
                   </div>
                 )}
 
-                {/* Pagination Info */}
                 <div className="text-center text-gray-500 text-sm mt-4">
                   Se afișează {displayedProducts.length} din{" "}
                   {filteredProducts.length} produse

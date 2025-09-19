@@ -180,10 +180,8 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
 
       <div className="px-2">
         <div className="relative h-10 mb-4">
-          {/* Track Background */}
           <div className="absolute top-1/2 w-full h-2 bg-gray-200 rounded-lg transform -translate-y-1/2"></div>
 
-          {/* Active Range Track */}
           <div
             className="absolute top-1/2 h-2 bg-green-500 rounded-lg transform -translate-y-1/2 pointer-events-none"
             style={{
@@ -194,7 +192,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
             }}
           ></div>
 
-          {/* Min Range Slider */}
           <input
             type="range"
             min={MIN_LIMIT}
@@ -205,7 +202,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
             className="absolute top-1/2 w-full h-6 bg-transparent appearance-none cursor-pointer transform -translate-y-1/2 z-10 dual-range-slider min-slider"
           />
 
-          {/* Max Range Slider */}
           <input
             type="range"
             min={MIN_LIMIT}
@@ -217,7 +213,6 @@ const PriceRangeSlider: React.FC<PriceRangeSliderProps> = ({
           />
         </div>
 
-        {/* Min/Max Labels */}
         <div className="flex justify-between text-xs text-gray-600">
           <span>{MIN_LIMIT} lei</span>
           <span className="font-medium text-gray-700">
@@ -349,7 +344,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
 
   return (
     <>
-      {/* Mobile Filter Toggle */}
       <div className="lg:hidden mb-4 sm:mb-6">
         <button
           onClick={onToggleMobileFilters}
@@ -375,7 +369,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
         </button>
       </div>
 
-      {/* Mobile Backdrop */}
       {showMobileFilters && (
         <div
           className="fixed inset-0 bg-black/50 bg-opacity-50 z-40 lg:hidden"
@@ -383,7 +376,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
         />
       )}
 
-      {/* Filters Sidebar */}
       <div
         className={`fixed inset-0 z-50 lg:static lg:z-auto transition-transform duration-300 lg:transition-none ${
           showMobileFilters
@@ -421,7 +413,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
           </div>
 
           <div className="space-y-4 sm:space-y-6">
-            {/* Search */}
             <div className="mb-4 sm:mb-6">
               <label
                 className="block text-sm font-medium text-gray-700  mb-2"
@@ -456,7 +447,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               </div>
             </div>
 
-            {/* Category */}
             <div className="mb-4 sm:mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Categorie
@@ -465,14 +455,13 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
                 value={filters.category}
                 onChange={(value) => {
                   onFilterChange("category", value);
-                  onFilterChange("subcategory", ""); // Reset subcategory
+                  onFilterChange("subcategory", "");
                 }}
                 options={categoryOptions}
                 placeholder="Toate categoriile"
               />
             </div>
 
-            {/* Subcategory */}
             {filters.category && (
               <div className="mb-4 sm:mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -487,7 +476,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               </div>
             )}
 
-            {/* Price Range with Dual Slider */}
             <div className="mb-4 sm:mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Interval preț (Lei)
@@ -500,7 +488,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               />
             </div>
 
-            {/* Special Filters */}
             <div className="mb-4 sm:mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 Filtre speciale
@@ -538,7 +525,6 @@ const ProductsFilters: React.FC<ProductsFiltersProps> = ({
               </div>
             </div>
 
-            {/* Stock Status */}
             <div className="mb-4 sm:mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 Disponibilitate
