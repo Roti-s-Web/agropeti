@@ -9,7 +9,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ## 📸 Preview
 
 <div align="center">
-  <img src="(https://github.com/user-attachments/assets/bde8b951-d1ac-4bd3-95f7-e9982cb72907" alt="Homepage" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-1.webp&w=3840&q=90" alt="Homepage" width="45%">
   <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Catalog+Produse" alt="Catalog" width="45%">
 </div>
 
