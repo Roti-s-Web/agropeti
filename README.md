@@ -81,12 +81,12 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
-## 📱 Screenshots Mobile
+## 📱 Mobile
 
 <div align="center">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Homepage" alt="Mobile Homepage" width="30%">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Catalog" alt="Mobile Catalog" width="30%">
-  <img src="https://via.placeholder.com/300x600/f3f4f6/22c55e?text=Mobile+Product" alt="Mobile Product" width="30%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314049/agropeti.vercel.app__iPhone_XR_fv3xzs.png" alt="Mobile Homepage" width="33%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314043/agropeti.vercel.app_admin_iPhone_XR_dxagkw.png" alt="Mobile Product Detailes" width="33%">
+  <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314038/agropeti.vercel.app_admin_iPhone_XR_1_oodih3.png" alt="Mobile Admin" width="33%">
 </div>
 
 ## 🚀 Instalare și Rulare
