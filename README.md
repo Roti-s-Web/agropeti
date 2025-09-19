@@ -29,13 +29,12 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 - **Panou administrativ complet** pentru gestionarea stocurilor
 - **Creare și editare produse** cu specificații detaliate
 - **Sistem de aplicare reduceri** și gestionare produse recomandate
-- **Gestionare categorii și subcategorii** flexibilă
 
 ### 🔍 Căutare & Filtrare
 
 - **Sistem de căutare avansat** după categorie, cuvinte cheie și interval de preț
 - **Filtrare după disponibilitate** în stoc
-- **Sortare** după preț, popularitate și noutate
+- **Sortare** după preț, stare și disponibilitate
 - **Rezultate instantanee** cu performanță optimizată
 
 ### 📦 Produse
@@ -48,7 +47,6 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ### 📞 Comandă & Contact
 
 - **Sistem de comandă** prin contact telefonic direct
-- **Formular de contact** integrat
 - **Informații complete** despre modalități de livrare
 
 ## 🎯 Provocări Tehnice
@@ -131,14 +129,6 @@ CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 - **Titluri**: Inter, sans-serif - Modern și lizibil
 - **Text**: Inter, sans-serif - Consistent în toată aplicația
-
-## 📞 Contact & Suport
-
-Pentru întrebări tehnice sau suport:
-
-- 📧 Email: support@agropeti.ro
-- 📱 Telefon: +40 XXX XXX XXX
-- 🌐 Website: [agropeti.ro](https://agropeti.ro)
 
 ---
 
