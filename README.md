@@ -9,13 +9,13 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ## 📸 Preview
 
 <div align="center">
-  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-1.webp&w=3840&q=90" alt="Homepage" width="45%">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Catalog+Produse" alt="Catalog" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-1.webp&w=3840&q=90" alt="Catalog" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-2.webp&w=3840&q=90" alt="Product Details" width="45%">
 </div>
 
 <div align="center">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Panou+Admin" alt="Admin Panel" width="45%">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Detalii+Produs" alt="Product Details" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-5.webp&w=3840&q=90" alt="Admin Panel" width="45%">
+  <img src="https://rotis-web.vercel.app/_next/image?url=%2Fimages%2Fprojects%2FAgroPeti%2Fagropeti-3.webp&w=3840&q=90" alt="Contact" width="45%">
 </div>
 
 ## ✨ Funcționalități
