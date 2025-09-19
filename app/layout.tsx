@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Layout/Header";
 import { Overheader } from "./components/Layout/Overheader";
@@ -7,6 +8,11 @@ import { ScrollToTopButton } from "./components/Layout/ScrollToTopButton";
 import AuthProvider from "@/context/AuthProvider";
 import { ProductProvider } from "@/context/ProductProvider";
 import { FavoritesProvider } from "@/context/FavoritesProvider";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -31,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ro">
-      <body>
+      <body className={`${inter.variable} antialiased`}>
         <AuthProvider>
           <ProductProvider>
             <FavoritesProvider>

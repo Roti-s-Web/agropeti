@@ -71,24 +71,6 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 - ✅ Design responsive pentru toate tipurile de dispozitive
 - ✅ Navigare intuitivă pentru utilizatori cu experiență tehnică variată
 
-## 🏆 Rezultate
-
-![Stats](https://via.placeholder.com/800x200/22c55e/ffffff?text=Performanta+Excelenta+%7C+Administrare+Simpla+%7C+UX+Optimizat)
-
-### 💼 Pentru Business
-
-- **Platformă completă și profesională** pentru vânzarea de produse agricole
-- **Sistem de administrare simplu** și eficient pentru gestionarea businessului
-- **Contact direct cu clienții** prin sistemul de comandă telefonică
-- **Creșterea vizibilității** produselor prin design atractiv
-
-### 👥 Pentru Utilizatori
-
-- **Experiență de utilizare optimizată** pentru căutarea rapidă de produse
-- **Informații complete** pentru luarea deciziilor de cumpărare
-- **Performanță excelentă** și încărcare rapidă a paginilor
-- **Interfață intuitivă** ușor de navigat
-
 ## 🛠️ Stack Tehnologic
 
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
@@ -109,7 +91,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 
 ```bash
 # Clonează repository-ul
-git clone https://github.com/yourusername/agropeti-website.git
+git clone https://github.com/alecs007/agropeti-website
 
 # Navighează în directorul proiectului
 cd agropeti-website
@@ -128,18 +110,21 @@ npm run dev
 cp .env.example .env.local
 
 # Editează .env.local cu datele tale
-MONGODB_URI=your_mongodb_connection_string
+DATABASE_URL=your_database_connection_string
 NEXTAUTH_SECRET=your_nextauth_secret
 NEXTAUTH_URL=http://localhost:3000
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 ```
 
 ## 🎨 Design System
 
 ### Paleta de Culori
 
-- **Verde Principal**: `#22c55e` - Simbolizează agricultura și natura
-- **Verde Închis**: `#15803d` - Pentru accenturi și hover states
-- **Gri**: `#6b7280` - Pentru text secundar și borduri
+- **Verde Principal**: `#16A34A` - Simbolizează agricultura și natura
+- **Verde Închis**: `#166534` - Pentru accenturi și hover states
+- **Gri**: `#6B7280` - Pentru text secundar și borduri
 - **Alb**: `#ffffff` - Fundal principal, curățenie și simplitate
 
 ### Tipografie
