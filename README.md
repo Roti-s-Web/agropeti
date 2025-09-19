@@ -1,6 +1,6 @@
 # 🌾 AgroPeti - Magazin Online Agricol
 
- <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314861/Untitled_design_vcnw12.png" alt="Banner" width="100%">
+ <img src="https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758315316/Untitled_design_1_wb2rxk.png" alt="Banner" width="100%">
 
 
 
