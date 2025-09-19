@@ -1,13 +1,15 @@
 # 🌾 AgroPeti - Magazin Online Agricol
 
-![AgroPeti Banner](https://via.placeholder.com/1200x400/22c55e/ffffff?text=AgroPeti+-+Solutii+Agricole+Premium)
+![AgroPeti_Banner](https://github.com/user-attachments/assets/6e6200ac-f0f7-4416-b7a0-71af5696ea96)
+
+
 
 AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinată fermierilor și pasionaților de grădinărit. Combină un design elegant cu funcționalități avansate de căutare și gestionare stocuri, oferind o experiență completă pentru clienți și administratori.
 
 ## 📸 Preview
 
 <div align="center">
-  <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Homepage+-+Design+Modern" alt="Homepage" width="45%">
+  <img src="(https://github.com/user-attachments/assets/bde8b951-d1ac-4bd3-95f7-e9982cb72907" alt="Homepage" width="45%">
   <img src="https://via.placeholder.com/600x400/f3f4f6/22c55e?text=Catalog+Produse" alt="Catalog" width="45%">
 </div>
 
