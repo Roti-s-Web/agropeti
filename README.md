@@ -1,6 +1,6 @@
 # 🌾 AgroPeti - Magazin Online Agricol
 
-![AgroPeti_Banner](https://github.com/user-attachments/assets/6e6200ac-f0f7-4416-b7a0-71af5696ea96)
+![AgroPeti_Banner](https://res.cloudinary.com/dqyq1oiwi/image/upload/v1758314861/Untitled_design_vcnw12.png)
 
 
 
