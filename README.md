@@ -35,8 +35,7 @@ AgroPeti este o platformă e-commerce modernă pentru produse agricole, destinat
 ### 🔍 Căutare & Filtrare
 
 - **Sistem de căutare avansat** după categorie, cuvinte cheie și interval de preț
-- **Filtrare după disponibilitate** în stoc
-- **Sortare** după preț, stare și disponibilitate
+- **Sortare** după preț, noutate și disponibilitate
 - **Rezultate instantanee** cu performanță optimizată
 
 ### 📦 Produse
