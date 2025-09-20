@@ -90,7 +90,7 @@
 
 ```bash
 # Clonează repository-ul
-git clone https://github.com/alecs007/agropeti-website
+git clone https://github.com/alecs007/agropeti-website.git
 
 # Navighează în directorul proiectului
 cd agropeti-website
